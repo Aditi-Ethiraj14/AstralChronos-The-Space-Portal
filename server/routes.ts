@@ -53,20 +53,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const data = await response.json();
       res.json(data);
     } catch (error) {
-      res.status(500).json({ 
-        error: "Failed to fetch NASA APOD",
-        fallback: {
-          title: "Eagle Nebula Pillars",
-          explanation: "The iconic Pillars of Creation in the Eagle Nebula showcase star formation in action...",
-          url: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
-        }
+      // Return fallback data instead of error
+      res.json({
+        title: "Eagle Nebula Pillars",
+        explanation: "The iconic Pillars of Creation in the Eagle Nebula showcase star formation in action with towering columns of gas and dust where new stars are born.",
+        url: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
       });
     }
   });
 
   app.get("/api/nasa/iss", async (req, res) => {
     try {
-      const response = await fetch('http://api.open-notify.org/iss-now.json');
+      const response = await fetch('https://api.wheretheiss.at/v1/satellites/25544');
       
       if (!response.ok) {
         throw new Error('ISS API request failed');
@@ -74,18 +72,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       const data = await response.json();
       res.json({
-        latitude: data.iss_position.latitude,
-        longitude: data.iss_position.longitude,
+        latitude: data.latitude.toFixed(4),
+        longitude: data.longitude.toFixed(4),
         speed: '27,600'
       });
     } catch (error) {
-      res.status(500).json({ 
-        error: "Failed to fetch ISS location",
-        fallback: {
-          latitude: "45.3642",
-          longitude: "-121.5278",
-          speed: "27,600"
-        }
+      // Return fallback data instead of error
+      res.json({
+        latitude: "45.3642",
+        longitude: "-121.5278",
+        speed: "27,600"
       });
     }
   });

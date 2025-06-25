@@ -8,19 +8,14 @@ export function useNasaApi(endpoint: string) {
     queryFn: async () => {
       switch (endpoint) {
         case 'apod':
-          const apodResponse = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`);
+          const apodResponse = await fetch('/api/nasa/apod');
           if (!apodResponse.ok) throw new Error('Failed to fetch APOD');
           return apodResponse.json();
           
         case 'iss':
-          const issResponse = await fetch('http://api.open-notify.org/iss-now.json');
+          const issResponse = await fetch('/api/nasa/iss');
           if (!issResponse.ok) throw new Error('Failed to fetch ISS location');
-          const issData = await issResponse.json();
-          return {
-            latitude: issData.iss_position.latitude,
-            longitude: issData.iss_position.longitude,
-            speed: '27,600'
-          };
+          return issResponse.json();
           
         case 'moon':
           // Mock moon data - in production, integrate with moon phase API
