@@ -1,0 +1,38 @@
+[
+  {
+    "id": "mars",
+    "name": "Mars",
+    "image": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=150",
+    "description": "Red Planet Adventure",
+    "temperature": "-80°C to 20°C",
+    "satellites": "Phobos, Deimos",
+    "funFact": "Mars has the largest volcano in the solar system - Olympus Mons, which is nearly three times the height of Mount Everest!"
+  },
+  {
+    "id": "jupiter",
+    "name": "Jupiter",
+    "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=150",
+    "description": "Gas Giant Exploration",
+    "temperature": "-145°C to -110°C",
+    "satellites": "79+ moons including Io, Europa, Ganymede, Callisto",
+    "funFact": "Jupiter's Great Red Spot is a storm that has been raging for over 400 years and is larger than Earth!"
+  },
+  {
+    "id": "saturn",
+    "name": "Saturn",
+    "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=150",
+    "description": "Ringed World Wonder",
+    "temperature": "-178°C to -139°C",
+    "satellites": "83+ moons including Titan, Enceladus",
+    "funFact": "Saturn's rings are made of ice and rock particles, some as small as dust and others as large as mountains!"
+  },
+  {
+    "id": "europa",
+    "name": "Europa",
+    "image": "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=150",
+    "description": "Ocean Moon Mystery",
+    "temperature": "-160°C to -220°C",
+    "satellites": "Moon of Jupiter",
+    "funFact": "Europa has twice as much water as all of Earth's oceans combined, hidden beneath its icy crust!"
+  }
+]

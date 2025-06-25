@@ -1,0 +1,57 @@
+{
+  "quizzes": [
+    {
+      "id": "solar-system",
+      "title": "Solar System Basics",
+      "emoji": "🪐",
+      "description": "Test your knowledge about the planets, moons, and other celestial bodies in our solar system.",
+      "duration": "5 minutes",
+      "questions": 10,
+      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "id": "exploration",
+      "title": "Space Exploration",
+      "emoji": "🚀",
+      "description": "Learn about historic space missions, astronauts, and the future of space exploration.",
+      "duration": "7 minutes",
+      "questions": 15,
+      "image": "https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "id": "deep-space",
+      "title": "Deep Space",
+      "emoji": "🌌",
+      "description": "Explore galaxies, black holes, nebulae, and the mysteries of the distant universe.",
+      "duration": "10 minutes",
+      "questions": 20,
+      "image": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    }
+  ],
+  "learningCards": [
+    {
+      "id": "black-holes",
+      "title": "Get to Know: Black Holes",
+      "emoji": "🕳️",
+      "description": "Discover the fascinating physics behind these cosmic phenomena and how they affect spacetime.",
+      "readTime": "3 min read",
+      "topic": "black-holes"
+    },
+    {
+      "id": "exoplanets",
+      "title": "Get to Know: Exoplanets",
+      "emoji": "🪐",
+      "description": "Learn about planets beyond our solar system and the search for potentially habitable worlds.",
+      "readTime": "4 min read",
+      "topic": "exoplanets"
+    },
+    {
+      "id": "space-weather",
+      "title": "Get to Know: Space Weather",
+      "emoji": "☀️",
+      "description": "Understand solar flares, cosmic rays, and how space weather affects Earth and astronauts.",
+      "readTime": "5 min read",
+      "topic": "space-weather"
+    }
+  ]
+}

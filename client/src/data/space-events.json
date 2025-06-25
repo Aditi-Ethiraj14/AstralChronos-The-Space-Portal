@@ -1,0 +1,64 @@
+{
+  "12-25": {
+    "title": "James Webb Space Telescope Launch (2021)",
+    "description": "The most powerful space telescope ever built was launched from French Guiana, marking a new era in astronomical observation and our understanding of the universe.",
+    "date": "December 25, 2021",
+    "category": "Launch",
+    "agency": "NASA"
+  },
+  "07-20": {
+    "title": "Apollo 11 Moon Landing (1969)",
+    "description": "Neil Armstrong and Buzz Aldrin became the first humans to walk on the Moon, with Armstrong famously saying 'That's one small step for man, one giant leap for mankind.'",
+    "date": "July 20, 1969",
+    "category": "Landing",
+    "agency": "NASA"
+  },
+  "timeline": [
+    {
+      "year": 1957,
+      "title": "Sputnik 1 Launch",
+      "description": "The Soviet Union successfully launched the first artificial satellite, marking the beginning of the Space Age and the space race.",
+      "date": "Oct 4, 1957",
+      "category": "Launch",
+      "image": "https://images.unsplash.com/photo-1586829135343-132950070391?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 1969,
+      "title": "Apollo 11 Moon Landing",
+      "description": "Neil Armstrong and Buzz Aldrin became the first humans to walk on the Moon, fulfilling President Kennedy's goal of landing on the Moon before the end of the 1960s.",
+      "date": "Jul 20, 1969",
+      "category": "Landing",
+      "image": "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 1990,
+      "title": "Hubble Space Telescope",
+      "description": "The Hubble Space Telescope was deployed, revolutionizing our understanding of the universe and providing stunning images of distant galaxies.",
+      "date": "Apr 24, 1990",
+      "category": "Deployment",
+      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 2021,
+      "title": "Perseverance Mars Landing",
+      "description": "NASA's Perseverance rover successfully landed on Mars, beginning its mission to search for signs of ancient microbial life and collect rock samples.",
+      "date": "Feb 18, 2021",
+      "category": "Landing",
+      "image": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    }
+  ],
+  "calendar": {
+    "12-07": [
+      {
+        "title": "Apollo 17 Launch (1972)",
+        "description": "The last crewed mission to the Moon launched on this day."
+      }
+    ],
+    "04-12": [
+      {
+        "title": "Yuri Gagarin First Human in Space (1961)",
+        "description": "Soviet cosmonaut Yuri Gagarin became the first human to journey into outer space."
+      }
+    ]
+  }
+}
