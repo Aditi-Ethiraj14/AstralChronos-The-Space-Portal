@@ -7,7 +7,44 @@
       "description": "Test your knowledge about the planets, moons, and other celestial bodies in our solar system.",
       "duration": "5 minutes",
       "questions": 10,
-      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
+      "questionsData": [
+        {
+          "id": 1,
+          "question": "Which planet is known as the Red Planet?",
+          "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+          "correct": 1,
+          "explanation": "Mars is called the Red Planet due to iron oxide (rust) on its surface."
+        },
+        {
+          "id": 2,
+          "question": "How many moons does Jupiter have?",
+          "options": ["12", "27", "79", "95"],
+          "correct": 3,
+          "explanation": "Jupiter has 95 confirmed moons, with the four largest being Io, Europa, Ganymede, and Callisto."
+        },
+        {
+          "id": 3,
+          "question": "What is the largest planet in our solar system?",
+          "options": ["Saturn", "Jupiter", "Neptune", "Uranus"],
+          "correct": 1,
+          "explanation": "Jupiter is the largest planet, with a mass greater than all other planets combined."
+        },
+        {
+          "id": 4,
+          "question": "Which planet has the most eccentric orbit?",
+          "options": ["Mercury", "Venus", "Earth", "Pluto"],
+          "correct": 0,
+          "explanation": "Mercury has the most eccentric orbit of the eight planets."
+        },
+        {
+          "id": 5,
+          "question": "What is the hottest planet in our solar system?",
+          "options": ["Mercury", "Venus", "Earth", "Mars"],
+          "correct": 1,
+          "explanation": "Venus is the hottest planet due to its thick atmosphere causing a runaway greenhouse effect."
+        }
+      ]
     },
     {
       "id": "exploration",
@@ -16,7 +53,44 @@
       "description": "Learn about historic space missions, astronauts, and the future of space exploration.",
       "duration": "7 minutes",
       "questions": 15,
-      "image": "https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+      "image": "https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
+      "questionsData": [
+        {
+          "id": 1,
+          "question": "Who was the first human in space?",
+          "options": ["Neil Armstrong", "Yuri Gagarin", "John Glenn", "Alan Shepard"],
+          "correct": 1,
+          "explanation": "Yuri Gagarin became the first human in space on April 12, 1961."
+        },
+        {
+          "id": 2,
+          "question": "Which mission first landed humans on the Moon?",
+          "options": ["Apollo 8", "Apollo 11", "Apollo 13", "Apollo 17"],
+          "correct": 1,
+          "explanation": "Apollo 11 successfully landed Neil Armstrong and Buzz Aldrin on the Moon in 1969."
+        },
+        {
+          "id": 3,
+          "question": "What was the first artificial satellite?",
+          "options": ["Explorer 1", "Sputnik 1", "Vanguard 1", "Luna 1"],
+          "correct": 1,
+          "explanation": "Sputnik 1 was launched by the Soviet Union on October 4, 1957."
+        },
+        {
+          "id": 4,
+          "question": "Which space agency operates the James Webb Space Telescope?",
+          "options": ["ESA", "NASA", "Roscosmos", "CNSA"],
+          "correct": 1,
+          "explanation": "NASA operates JWST in collaboration with ESA and CSA."
+        },
+        {
+          "id": 5,
+          "question": "What is the International Space Station's orbital speed?",
+          "options": ["17,500 mph", "25,000 mph", "30,000 mph", "35,000 mph"],
+          "correct": 0,
+          "explanation": "The ISS orbits Earth at approximately 17,500 mph (28,000 km/h)."
+        }
+      ]
     },
     {
       "id": "deep-space",
@@ -25,7 +99,44 @@
       "description": "Explore galaxies, black holes, nebulae, and the mysteries of the distant universe.",
       "duration": "10 minutes",
       "questions": 20,
-      "image": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+      "image": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
+      "questionsData": [
+        {
+          "id": 1,
+          "question": "What is the closest star to our solar system?",
+          "options": ["Alpha Centauri", "Proxima Centauri", "Sirius", "Vega"],
+          "correct": 1,
+          "explanation": "Proxima Centauri is the closest star to our solar system at 4.24 light-years away."
+        },
+        {
+          "id": 2,
+          "question": "What type of galaxy is the Milky Way?",
+          "options": ["Elliptical", "Spiral", "Irregular", "Lenticular"],
+          "correct": 1,
+          "explanation": "The Milky Way is a barred spiral galaxy with several spiral arms."
+        },
+        {
+          "id": 3,
+          "question": "What is a supernova?",
+          "options": ["A new star forming", "A star exploding", "A black hole", "A neutron star"],
+          "correct": 1,
+          "explanation": "A supernova is the explosive death of a massive star at the end of its life cycle."
+        },
+        {
+          "id": 4,
+          "question": "What is the event horizon?",
+          "options": ["Edge of the universe", "Boundary of a black hole", "Surface of a neutron star", "Edge of a galaxy"],
+          "correct": 1,
+          "explanation": "The event horizon is the boundary around a black hole beyond which nothing can escape."
+        },
+        {
+          "id": 5,
+          "question": "How old is the universe approximately?",
+          "options": ["10.8 billion years", "13.8 billion years", "15.2 billion years", "20.1 billion years"],
+          "correct": 1,
+          "explanation": "The universe is approximately 13.8 billion years old based on cosmic microwave background measurements."
+        }
+      ]
     }
   ],
   "learningCards": [

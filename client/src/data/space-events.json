@@ -23,12 +23,92 @@
       "image": "https://images.unsplash.com/photo-1586829135343-132950070391?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
     },
     {
+      "year": 1961,
+      "title": "First Human in Space",
+      "description": "Yuri Gagarin became the first human to journey into outer space, completing one orbit around Earth in 108 minutes aboard Vostok 1.",
+      "date": "Apr 12, 1961",
+      "category": "Milestone",
+      "image": "https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 1963,
+      "title": "First Woman in Space",
+      "description": "Valentina Tereshkova became the first woman to travel to space, spending almost three days in orbit aboard Vostok 6.",
+      "date": "Jun 16, 1963",
+      "category": "Milestone",
+      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 1965,
+      "title": "First Spacewalk",
+      "description": "Alexei Leonov performed the first spacewalk (EVA), spending 12 minutes outside his Voskhod 2 spacecraft.",
+      "date": "Mar 18, 1965",
+      "category": "Milestone",
+      "image": "https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 1966,
+      "title": "Luna 9 Moon Landing",
+      "description": "The first successful soft landing on the Moon by an unmanned spacecraft, transmitting the first images from the lunar surface.",
+      "date": "Feb 3, 1966",
+      "category": "Landing",
+      "image": "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 1968,
+      "title": "Apollo 8 Lunar Orbit",
+      "description": "First crewed mission to leave Earth orbit and travel to the Moon, capturing the iconic 'Earthrise' photograph.",
+      "date": "Dec 21, 1968",
+      "category": "Orbit",
+      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
       "year": 1969,
       "title": "Apollo 11 Moon Landing",
       "description": "Neil Armstrong and Buzz Aldrin became the first humans to walk on the Moon, fulfilling President Kennedy's goal of landing on the Moon before the end of the 1960s.",
       "date": "Jul 20, 1969",
       "category": "Landing",
       "image": "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 1971,
+      "title": "First Space Station",
+      "description": "Soviet Union launched Salyut 1, the world's first space station, beginning the era of long-duration spaceflight.",
+      "date": "Apr 19, 1971",
+      "category": "Station",
+      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 1975,
+      "title": "Apollo-Soyuz Test Project",
+      "description": "The first joint US-Soviet space mission, symbolizing détente between the two superpowers during the Cold War.",
+      "date": "Jul 15, 1975",
+      "category": "Mission",
+      "image": "https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 1977,
+      "title": "Voyager 1 & 2 Launch",
+      "description": "Twin spacecraft launched to explore the outer solar system, with Voyager 1 now being the farthest human-made object from Earth.",
+      "date": "Aug 20, 1977",
+      "category": "Launch",
+      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 1981,
+      "title": "Space Shuttle Era Begins",
+      "description": "Columbia launched on STS-1, inaugurating the Space Shuttle program and reusable spacecraft era.",
+      "date": "Apr 12, 1981",
+      "category": "Launch",
+      "image": "https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 1986,
+      "title": "Mir Space Station",
+      "description": "Soviet Union launched the Mir space station, which operated for 15 years and hosted international crews.",
+      "date": "Feb 20, 1986",
+      "category": "Station",
+      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
     },
     {
       "year": 1990,
@@ -39,12 +119,108 @@
       "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
     },
     {
+      "year": 1995,
+      "title": "First Exoplanet Discovery",
+      "description": "51 Pegasi b became the first confirmed exoplanet orbiting a main-sequence star, opening the field of exoplanet research.",
+      "date": "Oct 6, 1995",
+      "category": "Discovery",
+      "image": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 1998,
+      "title": "ISS Construction Begins",
+      "description": "The first module of the International Space Station (Zarya) was launched, beginning construction of humanity's largest space structure.",
+      "date": "Nov 20, 1998",
+      "category": "Station",
+      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 2003,
+      "title": "Mars Exploration Rovers",
+      "description": "Spirit and Opportunity rovers landed on Mars, beginning an era of robotic exploration that far exceeded mission expectations.",
+      "date": "Jan 4, 2004",
+      "category": "Landing",
+      "image": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 2008,
+      "title": "SpaceX Falcon 1 Success",
+      "description": "SpaceX achieved the first privately-funded liquid-propellant rocket to reach orbit, revolutionizing commercial spaceflight.",
+      "date": "Sep 28, 2008",
+      "category": "Launch",
+      "image": "https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 2012,
+      "title": "Curiosity Mars Landing",
+      "description": "NASA's Curiosity rover successfully landed on Mars using the revolutionary sky crane landing system.",
+      "date": "Aug 5, 2012",
+      "category": "Landing",
+      "image": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 2015,
+      "title": "New Horizons at Pluto",
+      "description": "NASA's New Horizons spacecraft became the first to visit Pluto, revealing a complex and dynamic world.",
+      "date": "Jul 14, 2015",
+      "category": "Flyby",
+      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 2016,
+      "title": "First Gravitational Waves",
+      "description": "LIGO detected gravitational waves for the first time, confirming Einstein's prediction and opening a new era of astronomy.",
+      "date": "Sep 14, 2015",
+      "category": "Discovery",
+      "image": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 2019,
+      "title": "First Black Hole Image",
+      "description": "The Event Horizon Telescope captured the first image of a black hole's event horizon in galaxy M87.",
+      "date": "Apr 10, 2019",
+      "category": "Discovery",
+      "image": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 2020,
+      "title": "Crew Dragon Demo-2",
+      "description": "SpaceX became the first commercial company to send astronauts to the ISS, ending US dependence on Russian Soyuz.",
+      "date": "May 30, 2020",
+      "category": "Launch",
+      "image": "https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
       "year": 2021,
       "title": "Perseverance Mars Landing",
       "description": "NASA's Perseverance rover successfully landed on Mars, beginning its mission to search for signs of ancient microbial life and collect rock samples.",
       "date": "Feb 18, 2021",
       "category": "Landing",
       "image": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 2021,
+      "title": "James Webb Launch",
+      "description": "The most powerful space telescope ever built launched, designed to observe the earliest galaxies and study exoplanet atmospheres.",
+      "date": "Dec 25, 2021",
+      "category": "Launch",
+      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 2022,
+      "title": "DART Asteroid Impact",
+      "description": "NASA's DART mission successfully impacted asteroid Dimorphos, demonstrating planetary defense capabilities.",
+      "date": "Sep 26, 2022",
+      "category": "Impact",
+      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
+    },
+    {
+      "year": 2023,
+      "title": "Artemis I Success",
+      "description": "NASA's uncrewed Artemis I mission successfully completed a lunar flyby, paving the way for human return to the Moon.",
+      "date": "Nov 16, 2022",
+      "category": "Mission",
+      "image": "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
     }
   ],
   "calendar": {
