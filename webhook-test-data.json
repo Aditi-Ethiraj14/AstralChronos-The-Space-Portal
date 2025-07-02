@@ -25,10 +25,10 @@
     "page_load": true,
     "user_action": "page_opened"
   },
-  "webhook_status": "TEST MODE - Ready for LLM output",
-  "webhook_url": "https://adie13.app.n8n.cloud/webhook-test/7825313f-a417-4ce7-802f-ecdd48dabbed",
+  "webhook_status": "PRODUCTION MODE - Active webhook",
+  "webhook_url": "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed",
   "webhook_response": "Workflow was started (when active)",
   "n8n_test_mode_note": "In test mode, you must click 'Execute Workflow' button in N8N editor before each webhook call",
   "production_setup": "For continuous operation, activate the workflow (toggle switch) to use production webhook URLs",
-  "instructions": "System now configured for test webhook with LLM responses:\n1. Calendar/date clicks send data to webhook-test URL\n2. N8N processes data through LLM and returns response\n3. 'Get AI Response' buttons fetch the LLM output\n4. Response displays directly on webpage"
+  "instructions": "System configured for production webhook with automatic date sending:\n1. Page loads automatically send current date to webhook\n2. Calendar clicks send selected dates to webhook\n3. N8N processes data through LLM and returns response\n4. 'Get AI Response' buttons fetch the LLM output\n5. Response displays directly on webpage"
 }
