@@ -46,6 +46,8 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 ### AI Integration
 - **Chatbot Assistant**: Voice and text-enabled space exploration assistant
 - **N8N Webhooks**: Integration with N8N automation platform for AI capabilities
+- **Real-time Date Integration**: Calendar and history sections send current date data to webhooks
+- **Dynamic Content**: Webhook responses can provide real-time space event information
 - **Speech Recognition**: Browser-based speech-to-text functionality
 - **Text-to-Speech**: Browser-based speech synthesis for responses
 
@@ -101,6 +103,10 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 ### Environment Variables
 - **API Keys**: NASA API key, moon phase API, news API keys
 - **Webhooks**: N8N endpoint URLs for AI integrations
+  - VITE_N8N_CHATBOT_WEBHOOK: Space assistant conversations
+  - VITE_N8N_TOURISM_WEBHOOK: Solar system tourism planning
+  - VITE_N8N_HISTORY_WEBHOOK: Real-time space history lookup
+  - VITE_N8N_CALENDAR_WEBHOOK: Calendar date selection events
 - **Database**: PostgreSQL connection string for production
 - **Security**: Session secrets and authentication tokens
 

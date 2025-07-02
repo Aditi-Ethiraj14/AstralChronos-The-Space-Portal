@@ -7,13 +7,57 @@ export default function AstronomicalCalendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
+  // Send date selection to webhook
+  const sendDateToWebhook = async (date: Date) => {
+    const webhookUrl = import.meta.env.VITE_N8N_CALENDAR_WEBHOOK;
+    if (!webhookUrl) return null;
+
+    try {
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          selected_date: date.toISOString().split('T')[0],
+          month: date.getMonth() + 1,
+          year: date.getFullYear(),
+          day: date.getDate(),
+          timestamp: Date.now(),
+          request_type: 'calendar_selection'
+        }),
+      });
+
+      if (response.ok) {
+        return await response.json();
+      }
+    } catch (error) {
+      console.log('Calendar webhook not configured or unavailable');
+    }
+    return null;
+  };
+
   const { data: calendarEvents } = useQuery({
     queryKey: ['/api/calendar-events', currentDate.getMonth(), currentDate.getFullYear()],
     queryFn: async () => {
+      // Try webhook first for dynamic calendar data
+      const webhookData = await sendDateToWebhook(currentDate);
+      if (webhookData && webhookData.calendar_events) {
+        return webhookData.calendar_events;
+      }
+
+      // Fallback to static data
       const { default: events } = await import("@/data/space-events.json");
-      return events.calendar || {};
+      return (events as any).calendar || {};
     }
   });
+
+  const handleDateClick = async (date: Date) => {
+    setSelectedDate(date);
+    
+    // Send selected date to webhook
+    await sendDateToWebhook(date);
+  };
 
   const getDaysInMonth = (date: Date) => {
     const year = date.getFullYear();
@@ -53,13 +97,13 @@ export default function AstronomicalCalendar() {
   const hasEvent = (date: Date | null) => {
     if (!date || !calendarEvents) return false;
     const dateKey = `${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-    return !!calendarEvents[dateKey];
+    return !!(calendarEvents as any)[dateKey];
   };
 
   const getEventsForDate = (date: Date | null) => {
     if (!date || !calendarEvents) return [];
     const dateKey = `${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-    return calendarEvents[dateKey] || [];
+    return (calendarEvents as any)[dateKey] || [];
   };
 
   const monthNames = [
@@ -130,7 +174,7 @@ export default function AstronomicalCalendar() {
                       ? 'bg-blue-400/40'
                       : ''
                   }`}
-                  onClick={() => date && setSelectedDate(date)}
+                  onClick={() => date && handleDateClick(date)}
                 >
                   {date && (
                     <>

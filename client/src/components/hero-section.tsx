@@ -13,23 +13,64 @@ interface SpaceEvent {
 
 export default function HeroSection() {
   const [todayEvent, setTodayEvent] = useState<SpaceEvent | null>(null);
+  const [webhookEvent, setWebhookEvent] = useState<SpaceEvent | null>(null);
+
+  const today = new Date();
+  const monthDay = `${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
+  const fullDate = today.toISOString().split('T')[0]; // YYYY-MM-DD format
+
+  // Send current date to webhook for space history
+  const sendDateToWebhook = async (currentDate: string) => {
+    const webhookUrl = import.meta.env.VITE_N8N_HISTORY_WEBHOOK;
+    if (!webhookUrl) return null;
+
+    try {
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          date: currentDate,
+          monthDay: monthDay,
+          timestamp: Date.now(),
+          request_type: 'space_history'
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        return data;
+      }
+    } catch (error) {
+      console.log('Webhook not configured or unavailable');
+    }
+    return null;
+  };
 
   const { data: spaceEvents } = useQuery({
     queryKey: ['/api/space-events/today'],
     queryFn: async () => {
-      // Get today's date in MM-DD format
-      const today = new Date();
-      const monthDay = `${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
-      
-      // Import static data
+      // Try webhook first for real-time data
+      const webhookData = await sendDateToWebhook(fullDate);
+      if (webhookData) {
+        return webhookData;
+      }
+
+      // Fallback to static data
       const { default: events } = await import("@/data/space-events.json");
-      return events[monthDay] || null;
+      return (events as any)[monthDay] || null;
     }
   });
 
   useEffect(() => {
     if (spaceEvents) {
-      setTodayEvent(spaceEvents);
+      if (spaceEvents.source === 'webhook') {
+        setWebhookEvent(spaceEvents);
+        setTodayEvent(spaceEvents);
+      } else {
+        setTodayEvent(spaceEvents);
+      }
     }
   }, [spaceEvents]);
 
