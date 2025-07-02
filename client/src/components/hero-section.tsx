@@ -14,6 +14,8 @@ interface SpaceEvent {
 export default function HeroSection() {
   const [todayEvent, setTodayEvent] = useState<SpaceEvent | null>(null);
   const [webhookEvent, setWebhookEvent] = useState<SpaceEvent | null>(null);
+  const [n8nOutput, setN8nOutput] = useState<string>('');
+  const [fetchingN8n, setFetchingN8n] = useState(false);
 
   const today = new Date();
   const monthDay = `${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
@@ -159,10 +161,27 @@ export default function HeroSection() {
               <>
                 <div className="text-lg mb-2 font-semibold">{todayEvent.title}</div>
                 <p className="text-gray-300 mb-4">{todayEvent.description}</p>
-                <div className="flex justify-center space-x-4">
+                <div className="flex justify-center space-x-4 mb-4">
                   <span className="px-3 py-1 rounded-full text-sm" style={{ backgroundColor: 'hsl(220, 69%, 36%, 0.3)' }}>{todayEvent.agency}</span>
                   <span className="px-3 py-1 rounded-full text-sm" style={{ backgroundColor: 'hsl(250, 85%, 60%, 0.3)' }}>{todayEvent.category}</span>
                 </div>
+                
+                <button
+                  onClick={fetchN8nOutput}
+                  disabled={fetchingN8n}
+                  className="w-full bg-gradient-to-r from-blue-400 to-purple-400 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-400/80 hover:to-purple-400/80 transition-all disabled:opacity-50 mb-3"
+                >
+                  {fetchingN8n ? 'Fetching N8N Output...' : 'Get AI Response for Today'}
+                </button>
+                
+                {n8nOutput && (
+                  <div className="bg-black/30 border border-blue-400/30 rounded-lg p-4 text-left">
+                    <h4 className="text-blue-400 font-medium mb-2">N8N Webhook Response:</h4>
+                    <pre className="text-sm text-gray-300 whitespace-pre-wrap overflow-auto max-h-32" id="output">
+                      {n8nOutput}
+                    </pre>
+                  </div>
+                )}
               </>
             ) : (
               <p className="text-gray-300">Loading today's space event...</p>
