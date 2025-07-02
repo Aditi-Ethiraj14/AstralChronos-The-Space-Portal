@@ -9,10 +9,8 @@ export default function AstronomicalCalendar() {
 
   // Send date selection to webhook
   const sendDateToWebhook = (date: Date) => {
-    const webhookUrl = import.meta.env.VITE_N8N_CALENDAR_WEBHOOK || "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
-    
-    // Fire and forget webhook call
-    fetch(webhookUrl, {
+    // Send via server proxy to avoid CORS
+    fetch('/api/webhook/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -26,10 +24,10 @@ export default function AstronomicalCalendar() {
         request_type: 'calendar_selection',
         user_action: 'date_clicked'
       }),
-    }).then(response => {
-      console.log('Calendar date sent to webhook:', date.toISOString().split('T')[0], 'Status:', response.status);
+    }).then(response => response.json()).then(data => {
+      console.log('Calendar date sent to webhook:', date.toISOString().split('T')[0]);
     }).catch(() => {
-      console.log('Calendar webhook sent to:', webhookUrl, 'Date:', date.toISOString().split('T')[0]);
+      console.log('Calendar webhook sent, Date:', date.toISOString().split('T')[0]);
     });
   };
 

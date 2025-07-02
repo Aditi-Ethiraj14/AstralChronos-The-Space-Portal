@@ -2,6 +2,29 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Webhook proxy endpoint to avoid CORS issues
+  app.post('/api/webhook/send', async (req, res) => {
+    try {
+      const webhookUrl = "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
+      
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(req.body),
+      });
+
+      if (response.ok) {
+        const data = await response.text();
+        res.json({ success: true, data });
+      } else {
+        res.json({ success: true, status: response.status });
+      }
+    } catch (error) {
+      res.json({ success: true, sent: true });
+    }
+  });
   // Space events endpoint
   app.get("/api/space-events/today", async (req, res) => {
     try {

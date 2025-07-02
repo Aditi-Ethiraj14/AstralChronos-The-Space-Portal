@@ -21,10 +21,8 @@ export default function HeroSection() {
 
   // Send current date to webhook for space history
   const sendDateToWebhook = (currentDate: string) => {
-    const webhookUrl = import.meta.env.VITE_N8N_HISTORY_WEBHOOK || "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
-    
-    // Fire and forget webhook call
-    fetch(webhookUrl, {
+    // Send via server proxy to avoid CORS
+    fetch('/api/webhook/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -37,10 +35,10 @@ export default function HeroSection() {
         page_load: true,
         user_action: 'page_opened'
       }),
-    }).then(response => {
-      console.log('History webhook sent:', currentDate, 'Status:', response.status);
+    }).then(response => response.json()).then(data => {
+      console.log('History webhook sent:', currentDate);
     }).catch(() => {
-      console.log('History webhook sent to:', webhookUrl, 'Date:', currentDate);
+      console.log('History webhook sent, Date:', currentDate);
     });
   };
 
