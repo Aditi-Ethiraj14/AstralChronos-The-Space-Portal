@@ -6,6 +6,8 @@ import { useQuery } from "@tanstack/react-query";
 export default function AstronomicalCalendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [n8nOutput, setN8nOutput] = useState<string>('');
+  const [fetchingN8n, setFetchingN8n] = useState(false);
 
   // Send date selection to webhook
   const sendDateToWebhook = (date: Date) => {

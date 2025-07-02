@@ -34,6 +34,40 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json({ success: false, error: String(error) });
     }
   });
+
+  // Fetch N8N webhook response endpoint
+  app.post('/api/webhook/fetch', async (req, res) => {
+    try {
+      const webhookUrl = "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
+      
+      console.log('Fetching from N8N webhook:', webhookUrl);
+      console.log('Fetch payload:', JSON.stringify(req.body, null, 2));
+      
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(req.body),
+      });
+
+      console.log('N8N fetch response status:', response.status);
+      
+      if (response.ok) {
+        const text = await response.text();
+        console.log('N8N fetch response:', text);
+        res.json({ success: true, data: text, status: response.status });
+      } else {
+        const errorText = await response.text();
+        console.log('N8N fetch error:', errorText);
+        res.json({ success: false, status: response.status, error: errorText });
+      }
+    } catch (error) {
+      console.log('N8N fetch request failed:', error);
+      res.json({ success: false, error: String(error) });
+    }
+  });
+
   // Space events endpoint
   app.get("/api/space-events/today", async (req, res) => {
     try {

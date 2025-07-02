@@ -46,6 +46,40 @@ export default function HeroSection() {
     });
   };
 
+  // Fetch N8N webhook output
+  const fetchN8nOutput = async () => {
+    setFetchingN8n(true);
+    try {
+      const response = await fetch('/api/webhook/fetch', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          selected_date: fullDate,
+          monthDay: monthDay,
+          timestamp: Date.now(),
+          request_type: 'space_history_fetch',
+          user_action: 'fetch_n8n_output'
+        }),
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        setN8nOutput(result.data);
+        console.log('✅ N8N output fetched:', result.data);
+      } else {
+        setN8nOutput(`Error: ${result.status} - ${result.error}`);
+        console.log('⚠️ N8N fetch failed:', result.status);
+      }
+    } catch (error) {
+      setN8nOutput('Failed to fetch N8N output');
+      console.log('📡 N8N fetch error:', error);
+    } finally {
+      setFetchingN8n(false);
+    }
+  };
+
   const { data: spaceEvents } = useQuery({
     queryKey: ['/api/space-events/today'],
     queryFn: async () => {
