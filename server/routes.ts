@@ -31,7 +31,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
     } catch (error) {
       console.log('Webhook request failed:', error);
-      res.json({ success: false, error: error.message });
+      res.json({ success: false, error: String(error) });
     }
   });
   // Space events endpoint
