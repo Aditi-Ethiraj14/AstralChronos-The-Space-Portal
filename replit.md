@@ -118,6 +118,11 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 
 ## Changelog
 
+- January 2, 2025: Real-time webhook integration
+  - Automatic date sending to N8N webhook on page load
+  - Calendar date selection sends to webhook
+  - Today in Space History section webhook integration
+  - User-provided webhook: https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed
 - June 25, 2025: Complete AstralChronos implementation with all features
   - Starfield animated background with space theme
   - Today in Space History with dynamic content

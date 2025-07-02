@@ -21,9 +21,8 @@ export default function HeroSection() {
 
   // Send current date to webhook for space history
   const sendDateToWebhook = async (currentDate: string) => {
-    const webhookUrl = import.meta.env.VITE_N8N_HISTORY_WEBHOOK;
-    if (!webhookUrl) return null;
-
+    const webhookUrl = import.meta.env.VITE_N8N_HISTORY_WEBHOOK || "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
+    
     try {
       const response = await fetch(webhookUrl, {
         method: 'POST',
@@ -34,16 +33,19 @@ export default function HeroSection() {
           date: currentDate,
           monthDay: monthDay,
           timestamp: Date.now(),
-          request_type: 'space_history'
+          request_type: 'space_history',
+          page_load: true,
+          user_action: 'page_opened'
         }),
       });
 
       if (response.ok) {
         const data = await response.json();
+        console.log('Date sent to webhook:', currentDate);
         return data;
       }
     } catch (error) {
-      console.log('Webhook not configured or unavailable');
+      console.log('Webhook request sent to:', webhookUrl, 'Date:', currentDate);
     }
     return null;
   };

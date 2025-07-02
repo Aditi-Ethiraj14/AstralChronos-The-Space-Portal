@@ -8,8 +8,12 @@ import SpaceDashboard from "@/components/space-dashboard";
 import SpaceQuiz from "@/components/space-quiz";
 import FloatingChatbot from "@/components/floating-chatbot";
 import Footer from "@/components/footer";
+import { usePageLoadWebhook } from "@/hooks/use-page-load-webhook";
 
 export default function Home() {
+  // Send current date to webhook when page loads
+  usePageLoadWebhook();
+
   return (
     <div className="relative">
       <Starfield />

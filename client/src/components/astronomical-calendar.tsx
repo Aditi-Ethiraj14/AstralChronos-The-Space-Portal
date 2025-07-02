@@ -9,9 +9,8 @@ export default function AstronomicalCalendar() {
 
   // Send date selection to webhook
   const sendDateToWebhook = async (date: Date) => {
-    const webhookUrl = import.meta.env.VITE_N8N_CALENDAR_WEBHOOK;
-    if (!webhookUrl) return null;
-
+    const webhookUrl = import.meta.env.VITE_N8N_CALENDAR_WEBHOOK || "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
+    
     try {
       const response = await fetch(webhookUrl, {
         method: 'POST',
@@ -24,15 +23,17 @@ export default function AstronomicalCalendar() {
           year: date.getFullYear(),
           day: date.getDate(),
           timestamp: Date.now(),
-          request_type: 'calendar_selection'
+          request_type: 'calendar_selection',
+          user_action: 'date_clicked'
         }),
       });
 
       if (response.ok) {
+        console.log('Calendar date sent to webhook:', date.toISOString().split('T')[0]);
         return await response.json();
       }
     } catch (error) {
-      console.log('Calendar webhook not configured or unavailable');
+      console.log('Calendar webhook request sent to:', webhookUrl, 'Date:', date.toISOString().split('T')[0]);
     }
     return null;
   };
