@@ -20,46 +20,37 @@ export default function HeroSection() {
   const fullDate = today.toISOString().split('T')[0]; // YYYY-MM-DD format
 
   // Send current date to webhook for space history
-  const sendDateToWebhook = async (currentDate: string) => {
+  const sendDateToWebhook = (currentDate: string) => {
     const webhookUrl = import.meta.env.VITE_N8N_HISTORY_WEBHOOK || "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
     
-    try {
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          date: currentDate,
-          monthDay: monthDay,
-          timestamp: Date.now(),
-          request_type: 'space_history',
-          page_load: true,
-          user_action: 'page_opened'
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Date sent to webhook:', currentDate);
-        return data;
-      }
-    } catch (error) {
-      console.log('Webhook request sent to:', webhookUrl, 'Date:', currentDate);
-    }
-    return null;
+    // Fire and forget webhook call
+    fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        date: currentDate,
+        monthDay: monthDay,
+        timestamp: Date.now(),
+        request_type: 'space_history',
+        page_load: true,
+        user_action: 'page_opened'
+      }),
+    }).then(response => {
+      console.log('History webhook sent:', currentDate, 'Status:', response.status);
+    }).catch(() => {
+      console.log('History webhook sent to:', webhookUrl, 'Date:', currentDate);
+    });
   };
 
   const { data: spaceEvents } = useQuery({
     queryKey: ['/api/space-events/today'],
     queryFn: async () => {
-      // Try webhook first for real-time data
-      const webhookData = await sendDateToWebhook(fullDate);
-      if (webhookData) {
-        return webhookData;
-      }
+      // Send date to webhook for processing (fire and forget)
+      sendDateToWebhook(fullDate);
 
-      // Fallback to static data
+      // Use static data for display
       const { default: events } = await import("@/data/space-events.json");
       return (events as any)[monthDay] || null;
     }
