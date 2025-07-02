@@ -25,7 +25,8 @@
     "page_load": true,
     "user_action": "page_opened"
   },
-  "webhook_status": "N8N webhook not active - returning 404",
-  "webhook_url": "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed",
-  "instructions": "To activate your N8N webhook:\n1. Open your N8N workflow\n2. Click the toggle in the top-right to activate\n3. Ensure the webhook node is configured for production URLs\n4. The webhook will receive the above JSON payloads"
+  "webhook_status": "ACTIVE - Test webhook working",
+  "webhook_url": "https://adie13.app.n8n.cloud/webhook-test/7825313f-a417-4ce7-802f-ecdd48dabbed",
+  "webhook_response": "Workflow was started",
+  "instructions": "Test webhook is now receiving data successfully. Your N8N workflow will process the above JSON payloads with real-time date information."
 }
