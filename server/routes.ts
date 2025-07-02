@@ -7,6 +7,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const webhookUrl = "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
       
+      console.log('Sending to webhook:', webhookUrl);
+      console.log('Payload:', JSON.stringify(req.body, null, 2));
+      
       const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
@@ -15,14 +18,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
         body: JSON.stringify(req.body),
       });
 
+      console.log('Webhook response status:', response.status);
+      
       if (response.ok) {
         const data = await response.text();
-        res.json({ success: true, data });
+        console.log('Webhook response data:', data);
+        res.json({ success: true, data, status: response.status });
       } else {
-        res.json({ success: true, status: response.status });
+        const errorText = await response.text();
+        console.log('Webhook error response:', errorText);
+        res.json({ success: false, status: response.status, error: errorText });
       }
     } catch (error) {
-      res.json({ success: true, sent: true });
+      console.log('Webhook request failed:', error);
+      res.json({ success: false, error: error.message });
     }
   });
   // Space events endpoint

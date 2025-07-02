@@ -23,9 +23,13 @@ export function usePageLoadWebhook() {
           browser_timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
         }),
       }).then(response => response.json()).then(data => {
-        console.log('Page load date sent to webhook:', currentDate);
+        if (data.success) {
+          console.log('✅ Page load webhook sent successfully:', currentDate);
+        } else {
+          console.log('⚠️ Page load webhook failed:', data.status, currentDate);
+        }
       }).catch(() => {
-        console.log('Page load webhook sent, Date:', currentDate);
+        console.log('📡 Page load webhook attempted, Date:', currentDate);
       });
     };
 

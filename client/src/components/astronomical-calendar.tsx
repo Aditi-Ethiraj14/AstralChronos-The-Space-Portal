@@ -25,9 +25,13 @@ export default function AstronomicalCalendar() {
         user_action: 'date_clicked'
       }),
     }).then(response => response.json()).then(data => {
-      console.log('Calendar date sent to webhook:', date.toISOString().split('T')[0]);
+      if (data.success) {
+        console.log('✅ Calendar webhook sent successfully:', date.toISOString().split('T')[0]);
+      } else {
+        console.log('⚠️ Calendar webhook failed:', data.status, date.toISOString().split('T')[0]);
+      }
     }).catch(() => {
-      console.log('Calendar webhook sent, Date:', date.toISOString().split('T')[0]);
+      console.log('📡 Calendar webhook attempted, Date:', date.toISOString().split('T')[0]);
     });
   };
 

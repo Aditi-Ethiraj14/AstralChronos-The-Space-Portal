@@ -36,9 +36,13 @@ export default function HeroSection() {
         user_action: 'page_opened'
       }),
     }).then(response => response.json()).then(data => {
-      console.log('History webhook sent:', currentDate);
+      if (data.success) {
+        console.log('✅ History webhook sent successfully:', currentDate);
+      } else {
+        console.log('⚠️ History webhook failed:', data.status, currentDate);
+      }
     }).catch(() => {
-      console.log('History webhook sent, Date:', currentDate);
+      console.log('📡 History webhook attempted, Date:', currentDate);
     });
   };
 
