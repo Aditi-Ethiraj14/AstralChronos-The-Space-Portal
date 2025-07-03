@@ -51,6 +51,47 @@ export default function AstronomicalCalendar() {
     
     // Send selected date to webhook (fire and forget)
     sendDateToWebhook(date);
+    
+    // Clear previous N8N output when selecting new date
+    setN8nOutput('');
+  };
+
+  // Fetch N8N webhook output for selected date
+  const fetchN8nOutput = async () => {
+    if (!selectedDate) return;
+    
+    setFetchingN8n(true);
+    try {
+      const response = await fetch('/api/webhook/fetch', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          selected_date: selectedDate.toISOString().split('T')[0],
+          month: selectedDate.getMonth() + 1,
+          year: selectedDate.getFullYear(),
+          day: selectedDate.getDate(),
+          timestamp: Date.now(),
+          request_type: 'calendar_ai_history_fetch',
+          user_action: 'fetch_ai_events_for_date'
+        }),
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        setN8nOutput(result.data);
+        console.log('✅ AI Historical Events fetched for calendar:', result.data);
+      } else {
+        setN8nOutput(`Error: ${result.status} - ${result.error}`);
+        console.log('⚠️ AI Historical Events fetch failed:', result.status);
+      }
+    } catch (error) {
+      setN8nOutput('Failed to fetch AI Historical Events');
+      console.log('📡 AI Historical Events fetch error:', error);
+    } finally {
+      setFetchingN8n(false);
+    }
   };
 
   const getDaysInMonth = (date: Date) => {
@@ -205,6 +246,27 @@ export default function AstronomicalCalendar() {
                 <p className="text-gray-400">No space events recorded for this date.</p>
               ) : (
                 <p className="text-gray-400">Click on a date to see historical space events.</p>
+              )}
+              
+              {selectedDate && (
+                <div className="mt-6 space-y-4">
+                  <button
+                    onClick={fetchN8nOutput}
+                    disabled={fetchingN8n}
+                    className="w-full bg-gradient-to-r from-blue-400 to-purple-400 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-400/80 hover:to-purple-400/80 transition-all disabled:opacity-50"
+                  >
+                    {fetchingN8n ? 'Fetching AI Historical Events...' : 'Get AI Historical Events for Selected Date'}
+                  </button>
+                  
+                  {n8nOutput && (
+                    <div className="bg-black/30 border border-blue-400/30 rounded-lg p-4 text-left">
+                      <h4 className="text-blue-400 font-medium mb-2">AI Historical Events Response:</h4>
+                      <pre className="text-sm text-gray-300 whitespace-pre-wrap overflow-auto max-h-64">
+                        {n8nOutput}
+                      </pre>
+                    </div>
+                  )}
+                </div>
               )}
             </div>
           </motion.div>
