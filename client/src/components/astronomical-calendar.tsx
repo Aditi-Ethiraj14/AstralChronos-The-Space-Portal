@@ -82,8 +82,36 @@ export default function AstronomicalCalendar() {
       
       const result = await response.json();
       if (result.success) {
-        setN8nOutput(result.data);
-        console.log('✅ AI Historical Events fetched:', result.data);
+        // Parse the webhook response data to extract text
+        let outputText = '';
+        try {
+          if (typeof result.data === 'string') {
+            // Try to parse if it's a JSON string
+            try {
+              const parsed = JSON.parse(result.data);
+              if (Array.isArray(parsed) && parsed[0]?.text) {
+                outputText = parsed[0].text;
+              } else if (parsed.text) {
+                outputText = parsed.text;
+              } else {
+                outputText = result.data;
+              }
+            } catch {
+              outputText = result.data;
+            }
+          } else if (Array.isArray(result.data) && result.data[0]?.text) {
+            outputText = result.data[0].text;
+          } else if (result.data?.text) {
+            outputText = result.data.text;
+          } else {
+            outputText = JSON.stringify(result.data);
+          }
+        } catch {
+          outputText = result.data || 'No data received';
+        }
+        
+        setN8nOutput(outputText);
+        console.log('✅ AI Historical Events fetched:', outputText);
       } else {
         setN8nOutput(`Error: ${result.status} - ${result.error || 'Failed to get AI response'}`);
         console.log('⚠️ AI Historical Events fetch failed:', result.status);

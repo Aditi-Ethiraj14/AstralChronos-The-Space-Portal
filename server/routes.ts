@@ -56,7 +56,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (response.ok) {
         const text = await response.text();
         console.log('AI Events response:', text);
-        res.json({ success: true, data: text, status: response.status });
+        
+        // Try to parse as JSON first, if it fails return as text
+        let responseData;
+        try {
+          responseData = JSON.parse(text);
+        } catch {
+          responseData = text;
+        }
+        
+        res.json({ success: true, data: responseData, status: response.status });
       } else {
         const errorText = await response.text();
         console.log('AI Events error:', errorText);
