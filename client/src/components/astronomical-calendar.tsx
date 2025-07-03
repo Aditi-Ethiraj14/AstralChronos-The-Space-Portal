@@ -267,7 +267,7 @@ export default function AstronomicalCalendar() {
                   </div>
                 ))
               ) : selectedDate ? (
-                <p className="text-gray-400">No space events recorded for this date.</p>
+                null
               ) : (
                 <p className="text-gray-400">Click on a date to see historical space events.</p>
               )}
