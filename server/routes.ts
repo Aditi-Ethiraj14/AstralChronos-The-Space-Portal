@@ -5,7 +5,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Webhook proxy endpoint to avoid CORS issues
   app.post('/api/webhook/send', async (req, res) => {
     try {
-      const webhookUrl = "https://adie13.app.n8n.cloud/webhook-test/7825313f-a417-4ce7-802f-ecdd48dabbed";
+      const webhookUrl = "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
 
       console.log('Sending to webhook:', webhookUrl);
       console.log('Payload:', JSON.stringify(req.body, null, 2));
@@ -146,7 +146,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/nasa/apod", async (req, res) => {
     try {
       const apiKey = process.env.NASA_API_KEY || 'DEMO_KEY';
-      const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`);
+      const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=uS3paDFSjU5jOcywa5ttAoXDtDnqSMw4CeUu99eU`);
 
       if (!response.ok) {
         throw new Error('NASA API request failed');
@@ -176,7 +176,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json({
         latitude: data.latitude.toFixed(4),
         longitude: data.longitude.toFixed(4),
-        speed: '27,600'
+        speed: '27,600',
+        altitude: data.altitude.toFixed(2),
+        velocity: data.velocity.toFixed(2),
+        visibility: data.visibility,
+        footprint: data.footprint.toFixed(2),
+        timestamp: data.timestamp,
+        daynum: data.daynum,
+        solar_lat: data.solar_lat.toFixed(4),
+        solar_lon: data.solar_lon.toFixed(4),
+        units: data.units
       });
     } catch (error) {
       // Return fallback data instead of error
@@ -187,6 +196,42 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
     }
   });
+
+  app.get("/api/nasa/moon", async (req, res) => {
+  try {
+    const response = await fetch(`https://api.ipgeolocation.io/astronomy?apiKey=YOUR_API_KEY&location=New Delhi`);
+    
+    if (!response.ok) {
+      throw new Error("Moon API request failed");
+    }
+
+    const data = await response.json();
+
+    res.json({
+      moon_phase: data.moon_phase,
+      moon_illumination: data.moon_illumination,
+      moon_distance: data.moon_distance,
+      next_full_moon: data.next_full_moon,
+      moonrise: data.moonrise,
+      moonset: data.moonset,
+      sunrise: data.sunrise,
+      sunset: data.sunset,
+    });
+
+  } catch (error) {
+       // 🧷 Return fallback values
+    res.json({
+      moon_phase: "Waning Crescent",
+      moon_illumination: "12",
+      moon_distance: "389139",
+      next_full_moon: "2025-07-21",
+      moonrise: "19:27",
+      moonset: "06:18",
+      sunrise: "05:43",
+      sunset: "19:12"
+    });
+  }
+});
 
   // Chatbot webhook proxy
   app.post("/api/chatbot", async (req, res) => {

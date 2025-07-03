@@ -335,13 +335,18 @@ export default function SpaceQuiz() {
                   <span className="px-2 py-1 rounded text-xs" style={{ backgroundColor: 'hsl(250, 85%, 60%, 0.3)' }}>Educational</span>
                 </div>
                 <Button
-                  onClick={() => handleLearnMore(card.topic)}
-                  variant="outline"
-                  className="w-full border" 
-                  style={{ backgroundColor: 'hsl(207, 90%, 54%, 0.2)', borderColor: 'hsl(207, 90%, 54%, 0.5)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'hsl(207, 90%, 54%, 0.4)'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'hsl(207, 90%, 54%, 0.2)'}
+                  onClick={() => {
+                    if (index === 0) { // Assuming this condition targets the first card for black holes
+                      window.open('https://science.nasa.gov/universe/black-holes/', '_blank');
+                    } else if (index === 1) { // Second card for Exoplanets
+                      window.open('https://exoplanets.nasa.gov/', '_blank');
+                    } else if (index === 2) { // Third card for Space Weather
+                    window.open('https://science.nasa.gov/heliophysics/focus-areas/space-weather/', '_blank');
+                    }
+                  }}
+                  className="w-full glow-button bg-gradient-to-r from-blue-400 to-purple-400 hover:from-blue-400/80 hover:to-purple-400/80"
                 >
+                  <Play className="w-4 h-4 mr-2" />
                   Learn More
                 </Button>
               </motion.div>

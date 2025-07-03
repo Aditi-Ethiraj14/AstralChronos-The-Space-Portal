@@ -17,15 +17,6 @@ export function useNasaApi(endpoint: string) {
           if (!issResponse.ok) throw new Error('Failed to fetch ISS location');
           return issResponse.json();
           
-        case 'moon':
-          // Mock moon data - in production, integrate with moon phase API
-          return {
-            phase: 'Waxing Gibbous',
-            illumination: '87%',
-            nextFull: 'Dec 27, 2024',
-            distance: '384,400 km'
-          };
-          
         default:
           throw new Error(`Unknown endpoint: ${endpoint}`);
       }
