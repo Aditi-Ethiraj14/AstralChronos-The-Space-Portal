@@ -64,7 +64,8 @@ export default function AstronomicalCalendar() {
     setN8nOutput(''); // Clear previous output
     
     try {
-      const response = await fetch('/api/webhook/ai-events', {
+      // Use the same webhook endpoint that works, but wait for response
+      const response = await fetch('/api/webhook/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,9 +90,7 @@ export default function AstronomicalCalendar() {
             // Try to parse if it's a JSON string
             try {
               const parsed = JSON.parse(result.data);
-              if (Array.isArray(parsed) && parsed[0]?.text) {
-                outputText = parsed[0].text;
-              } else if (parsed.text) {
+              if (parsed.text) {
                 outputText = parsed.text;
               } else {
                 outputText = result.data;
@@ -99,8 +98,6 @@ export default function AstronomicalCalendar() {
             } catch {
               outputText = result.data;
             }
-          } else if (Array.isArray(result.data) && result.data[0]?.text) {
-            outputText = result.data[0].text;
           } else if (result.data?.text) {
             outputText = result.data.text;
           } else {
