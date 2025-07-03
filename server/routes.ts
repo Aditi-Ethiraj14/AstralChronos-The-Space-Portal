@@ -5,11 +5,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Webhook proxy endpoint to avoid CORS issues
   app.post('/api/webhook/send', async (req, res) => {
     try {
-      const webhookUrl = "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
-      
+      const webhookUrl = "https://adie13.app.n8n.cloud/webhook-test/7825313f-a417-4ce7-802f-ecdd48dabbed";
+
       console.log('Sending to webhook:', webhookUrl);
       console.log('Payload:', JSON.stringify(req.body, null, 2));
-      
+
       const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
@@ -19,7 +19,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       console.log('Webhook response status:', response.status);
-      
+
       if (response.ok) {
         const data = await response.text();
         console.log('Webhook response data:', data);
@@ -38,11 +38,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Fetch N8N webhook response endpoint
   app.post('/api/webhook/fetch', async (req, res) => {
     try {
-      const webhookUrl = "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
-      
+      const webhookUrl = "https://adie13.app.n8n.cloud/webhook-test/7825313f-a417-4ce7-802f-ecdd48dabbed";
+
       console.log('Fetching from N8N webhook:', webhookUrl);
       console.log('Fetch payload:', JSON.stringify(req.body, null, 2));
-      
+
       const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
@@ -52,7 +52,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       console.log('N8N fetch response status:', response.status);
-      
+
       if (response.ok) {
         const text = await response.text();
         console.log('N8N fetch response:', text);
@@ -73,7 +73,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const today = new Date();
       const monthDay = `${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
-      
+
       // In a real app, this would come from a database or external API
       const spaceEvents: Record<string, any> = {
         "12-25": {
@@ -111,11 +111,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const apiKey = process.env.NASA_API_KEY || 'DEMO_KEY';
       const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`);
-      
+
       if (!response.ok) {
         throw new Error('NASA API request failed');
       }
-      
+
       const data = await response.json();
       res.json(data);
     } catch (error) {
@@ -131,11 +131,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/nasa/iss", async (req, res) => {
     try {
       const response = await fetch('https://api.wheretheiss.at/v1/satellites/25544');
-      
+
       if (!response.ok) {
         throw new Error('ISS API request failed');
       }
-      
+
       const data = await response.json();
       res.json({
         latitude: data.latitude.toFixed(4),
