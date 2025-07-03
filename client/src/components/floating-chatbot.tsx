@@ -44,21 +44,34 @@ export default function FloatingChatbot() {
     setIsLoading(true);
 
     try {
-      // Send to N8N webhook
-      const webhookUrl = import.meta.env.VITE_N8N_CHATBOT_WEBHOOK || '';
+      // Send to new N8N chatbot webhook
+      const webhookUrl = "https://adie13.app.n8n.cloud/webhook-test/a21bcd3a-9aa0-4087-800a-a10530eef4cc";
 
       let botResponse = "I'm here to help with space questions! Unfortunately, my AI connection is currently unavailable, but I'd love to chat about space exploration, planets, or astronomy.";
 
-      if (webhookUrl) {
-        const response = await fetch(webhookUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: text })
-        });
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text })
+      });
 
-        if (response.ok) {
-          const data = await response.json();
-          botResponse = data.response || botResponse;
+      if (response.ok) {
+        const data = await response.text();
+        console.log('Chatbot webhook response:', data);
+        
+        // Try to parse JSON response from N8N
+        try {
+          const parsed = JSON.parse(data);
+          if (parsed.text) {
+            botResponse = parsed.text;
+          } else if (parsed.response) {
+            botResponse = parsed.response;
+          } else {
+            botResponse = data;
+          }
+        } catch {
+          // If parsing fails, use the raw response
+          botResponse = data;
         }
       }
 
