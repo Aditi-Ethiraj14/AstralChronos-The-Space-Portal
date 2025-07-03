@@ -59,20 +59,35 @@ export default function FloatingChatbot() {
         const data = await response.text();
         console.log('Chatbot webhook response:', data);
         
-        // Try to parse JSON response from N8N
+        // Handle N8N webhook response structure
         try {
           const parsed = JSON.parse(data);
+          // Check for various possible response structures from N8N
           if (parsed.text) {
             botResponse = parsed.text;
           } else if (parsed.response) {
             botResponse = parsed.response;
+          } else if (parsed.message) {
+            botResponse = parsed.message;
+          } else if (parsed.output) {
+            botResponse = parsed.output;
+          } else if (typeof parsed === 'string') {
+            botResponse = parsed;
+          } else {
+            // If it's an object but doesn't have expected fields, stringify it
+            botResponse = JSON.stringify(parsed, null, 2);
+          }
+        } catch (parseError) {
+          // If parsing fails, check if it's already a plain text response
+          if (typeof data === 'string' && data.trim()) {
+            botResponse = data.trim();
           } else {
             botResponse = data;
           }
-        } catch {
-          // If parsing fails, use the raw response
-          botResponse = data;
         }
+      } else {
+        console.error('Webhook request failed:', response.status, response.statusText);
+        // Keep the fallback message for failed requests
       }
 
       const botMessage: ChatMessage = {
