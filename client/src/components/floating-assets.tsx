@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface FloatingAsset {
   id: string;
-  emoji: string;
+  image: string;
   x: number;
   y: number;
   size: number;
@@ -12,9 +12,13 @@ interface FloatingAsset {
   delay: number;
 }
 
-const spaceEmojis = [
-  '🚀', '🛸', '🌌', '⭐', '🌟', '✨', '🪐', '🌍', '🌎', '🌏', 
-  '🌙', '☄️', '🛰️', '👨‍🚀', '👩‍🚀', '🔭', '🌠', '🪨', '🌞', '🌑'
+const spaceAssets = [
+  '/space-assets/ice-asteroid.png',
+  '/space-assets/fire-planet.png', 
+  '/space-assets/fire-asteroid.png',
+  '/space-assets/blue-planet.png',
+  '/space-assets/astronaut.png',
+  '/space-assets/green-crystal.png'
 ];
 
 export default function FloatingAssets() {
@@ -24,16 +28,16 @@ export default function FloatingAssets() {
     const generateAssets = () => {
       const newAssets: FloatingAsset[] = [];
       
-      // Generate 15 floating assets
-      for (let i = 0; i < 15; i++) {
+      // Generate 12 floating assets
+      for (let i = 0; i < 12; i++) {
         newAssets.push({
           id: `asset-${i}`,
-          emoji: spaceEmojis[Math.floor(Math.random() * spaceEmojis.length)],
+          image: spaceAssets[Math.floor(Math.random() * spaceAssets.length)],
           x: Math.random() * 100,
           y: Math.random() * 100,
-          size: Math.random() * 30 + 20, // 20-50px
-          duration: Math.random() * 20 + 10, // 10-30s
-          delay: Math.random() * 5, // 0-5s delay
+          size: Math.random() * 40 + 30, // 30-70px
+          duration: Math.random() * 25 + 15, // 15-40s
+          delay: Math.random() * 8, // 0-8s delay
         });
       }
       
@@ -42,8 +46,8 @@ export default function FloatingAssets() {
 
     generateAssets();
     
-    // Regenerate assets every 30 seconds for variety
-    const interval = setInterval(generateAssets, 30000);
+    // Regenerate assets every 45 seconds for variety
+    const interval = setInterval(generateAssets, 45000);
     
     return () => clearInterval(interval);
   }, []);
@@ -63,11 +67,11 @@ export default function FloatingAssets() {
               opacity: 0
             }}
             animate={{
-              x: [`${asset.x}vw`, `${(asset.x + 20) % 100}vw`, `${(asset.x + 40) % 100}vw`],
-              y: [`${asset.y}vh`, `${(asset.y + 15) % 100}vh`, `${(asset.y + 30) % 100}vh`],
-              scale: [0, 1, 1, 0],
-              rotate: [0, 360, 720],
-              opacity: [0, 0.7, 0.7, 0]
+              x: [`${asset.x}vw`, `${(asset.x + 30) % 100}vw`, `${(asset.x + 60) % 100}vw`],
+              y: [`${asset.y}vh`, `${(asset.y + 20) % 100}vh`, `${(asset.y + 40) % 100}vh`],
+              scale: [0, 1, 1, 0.8, 0],
+              rotate: [0, 180, 360, 540],
+              opacity: [0, 0.8, 0.9, 0.6, 0]
             }}
             transition={{
               duration: asset.duration,
@@ -76,39 +80,47 @@ export default function FloatingAssets() {
               ease: "easeInOut"
             }}
             style={{
-              fontSize: `${asset.size}px`,
-              filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.3))'
+              width: `${asset.size}px`,
+              height: `${asset.size}px`,
+              filter: 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.4))'
             }}
           >
-            {asset.emoji}
+            <img 
+              src={asset.image} 
+              alt="Space Asset"
+              className="w-full h-full object-contain"
+              style={{
+                filter: 'brightness(1.1) contrast(1.2)',
+              }}
+            />
           </motion.div>
         ))}
       </AnimatePresence>
       
-      {/* Shooting stars effect */}
+      {/* Enhanced shooting stars effect */}
       <div className="shooting-stars">
-        {[...Array(3)].map((_, i) => (
+        {[...Array(4)].map((_, i) => (
           <motion.div
             key={`shooting-${i}`}
-            className="absolute w-2 h-2 bg-white rounded-full"
+            className="absolute w-3 h-3 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
             initial={{
-              x: -20,
+              x: -30,
               y: Math.random() * window.innerHeight,
               opacity: 0
             }}
             animate={{
-              x: window.innerWidth + 20,
-              y: Math.random() * window.innerHeight + 100,
-              opacity: [0, 1, 0]
+              x: window.innerWidth + 30,
+              y: Math.random() * window.innerHeight + 150,
+              opacity: [0, 1, 1, 0]
             }}
             transition={{
-              duration: 3,
-              delay: i * 4,
+              duration: 4,
+              delay: i * 5,
               repeat: Infinity,
               ease: "easeOut"
             }}
             style={{
-              boxShadow: '0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(59, 130, 246, 0.6)'
+              boxShadow: '0 0 25px rgba(59, 130, 246, 0.9), 0 0 50px rgba(147, 51, 234, 0.7)'
             }}
           />
         ))}

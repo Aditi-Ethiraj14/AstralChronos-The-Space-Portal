@@ -143,27 +143,7 @@
     z-index: 0;
   }
 
-  /* Custom Cursor Styles */
-  body {
-    cursor: none;
-  }
-
-  .custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    pointer-events: none;
-    z-index: 9999;
-    font-size: 30px;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease;
-  }
-
-  .custom-cursor.hover {
-    transform: translate(-50%, -50%) scale(1.5);
-  }
+  
 
   .shooting-stars {
     position: absolute;
