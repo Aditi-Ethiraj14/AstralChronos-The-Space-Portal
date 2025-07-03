@@ -241,9 +241,6 @@ export default function AstronomicalCalendar() {
                   {date && (
                     <>
                       <span className="text-sm">{date.getDate()}</span>
-                      {hasEvent(date) && (
-                        <div className="absolute bottom-1 left-1 w-2 h-2 rounded-full" style={{ backgroundColor: 'hsl(35, 91%, 48%)' }} />
-                      )}
                     </>
                   )}
                 </div>

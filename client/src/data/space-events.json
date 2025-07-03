@@ -223,18 +223,5 @@
       "image": "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200"
     }
   ],
-  "calendar": {
-    "12-07": [
-      {
-        "title": "Apollo 17 Launch (1972)",
-        "description": "The last crewed mission to the Moon launched on this day."
-      }
-    ],
-    "04-12": [
-      {
-        "title": "Yuri Gagarin First Human in Space (1961)",
-        "description": "Soviet cosmonaut Yuri Gagarin became the first human to journey into outer space."
-      }
-    ]
-  }
+  "calendar": {}
 }
