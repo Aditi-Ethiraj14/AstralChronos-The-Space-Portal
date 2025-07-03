@@ -255,6 +255,13 @@ export default function HeroSection() {
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-300 mr-2"></div>
                 Processing workflow...
               </div>
+            ) : n8nOutput ? (
+              <div className="bg-black/30 border border-blue-400/30 rounded-lg p-4 text-left mb-3">
+                <h4 className="text-blue-400 font-medium mb-2">Today's Space History:</h4>
+                <pre className="text-sm text-gray-300 whitespace-pre-wrap overflow-auto max-h-32">
+                  {n8nOutput}
+                </pre>
+              </div>
             ) : (
               <p className="text-gray-300">Loading today's space event...</p>
             )}
