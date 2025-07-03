@@ -9,6 +9,8 @@ import SpaceQuiz from "@/components/space-quiz";
 import FloatingChatbot from "@/components/floating-chatbot";
 import Footer from "@/components/footer";
 import { usePageLoadWebhook } from "@/hooks/use-page-load-webhook";
+import FloatingAssets from "@/components/floating-assets";
+import CustomCursor from "@/components/custom-cursor";
 
 export default function Home() {
   // Send current date to webhook when page loads
@@ -17,6 +19,8 @@ export default function Home() {
   return (
     <div className="relative">
       <Starfield />
+      <FloatingAssets />
+      <CustomCursor />
       <Navigation />
       <HeroSection />
       <SpaceTimeline />
