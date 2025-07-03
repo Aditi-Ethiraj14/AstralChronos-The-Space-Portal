@@ -46,6 +46,7 @@ export default function HeroSection() {
         try {
           if (typeof data.data === 'string') {
             try {
+              // Try to parse the JSON string from N8N
               const parsed = JSON.parse(data.data);
               if (parsed.text) {
                 outputText = parsed.text;
@@ -53,27 +54,31 @@ export default function HeroSection() {
                 outputText = data.data;
               }
             } catch {
+              // If parsing fails, use the raw string
               outputText = data.data;
             }
-          } else if (data.data?.text) {
+          } else if (data.data && typeof data.data === 'object' && data.data.text) {
             outputText = data.data.text;
+          } else if (data.data) {
+            outputText = JSON.stringify(data.data, null, 2);
           } else {
-            outputText = JSON.stringify(data.data);
+            outputText = 'No data received from N8N workflow';
           }
-        } catch {
-          outputText = data.data || 'No data received';
+        } catch (error) {
+          outputText = `Error parsing response: ${error}`;
+          console.error('Response parsing error:', error, 'Data:', data);
         }
         
         setN8nOutput(outputText);
         console.log('✅ Hero N8N output auto-fetched:', outputText);
       } else {
         console.log('⚠️ Hero webhook failed:', data.status, currentDate);
-        setN8nOutput(`Error: ${data.status} - ${data.error}`);
+        setN8nOutput(`Error: ${data.status} - ${data.error || 'Unknown error'}`);
       }
       setFetchingN8n(false);
     }).catch((error) => {
-      console.log('📡 Hero webhook attempted, Date:', currentDate);
-      setN8nOutput('Failed to fetch N8N output');
+      console.log('📡 Hero webhook error:', error, 'Date:', currentDate);
+      setN8nOutput('Failed to connect to N8N workflow');
       setFetchingN8n(false);
     });
   };
@@ -102,8 +107,8 @@ export default function HeroSection() {
         let outputText = '';
         try {
           if (typeof result.data === 'string') {
-            // Try to parse if it's a JSON string
             try {
+              // Try to parse the JSON string from N8N
               const parsed = JSON.parse(result.data);
               if (parsed.text) {
                 outputText = parsed.text;
@@ -111,15 +116,19 @@ export default function HeroSection() {
                 outputText = result.data;
               }
             } catch {
+              // If parsing fails, use the raw string
               outputText = result.data;
             }
-          } else if (result.data?.text) {
+          } else if (result.data && typeof result.data === 'object' && result.data.text) {
             outputText = result.data.text;
+          } else if (result.data) {
+            outputText = JSON.stringify(result.data, null, 2);
           } else {
-            outputText = JSON.stringify(result.data);
+            outputText = 'No data received from N8N workflow';
           }
-        } catch {
-          outputText = result.data || 'No data received';
+        } catch (error) {
+          outputText = `Error parsing response: ${error}`;
+          console.error('Response parsing error:', error, 'Data:', result);
         }
         
         setN8nOutput(outputText);
