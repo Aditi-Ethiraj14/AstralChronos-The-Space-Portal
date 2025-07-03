@@ -29,6 +29,11 @@ export default function AstronomicalCalendar() {
     }).then(response => response.json()).then(data => {
       if (data.success) {
         console.log('✅ Calendar webhook sent successfully:', date.toISOString().split('T')[0]);
+        // If we got AI response data back, store it immediately
+        if (data.data && typeof data.data === 'string' && data.data.length > 50) {
+          setN8nOutput(data.data);
+          console.log('✅ AI response received immediately:', data.data);
+        }
       } else {
         console.log('⚠️ Calendar webhook failed:', data.status, date.toISOString().split('T')[0]);
       }
