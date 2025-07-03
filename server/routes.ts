@@ -35,6 +35,39 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // AI Historical Events endpoint using test webhook
+  app.post('/api/webhook/ai-events', async (req, res) => {
+    try {
+      const webhookUrl = "https://adie13.app.n8n.cloud/webhook-test/7825313f-a417-4ce7-802f-ecdd48dabbed";
+
+      console.log('Sending to AI Events webhook:', webhookUrl);
+      console.log('AI Events payload:', JSON.stringify(req.body, null, 2));
+
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(req.body),
+      });
+
+      console.log('AI Events response status:', response.status);
+
+      if (response.ok) {
+        const text = await response.text();
+        console.log('AI Events response:', text);
+        res.json({ success: true, data: text, status: response.status });
+      } else {
+        const errorText = await response.text();
+        console.log('AI Events error:', errorText);
+        res.json({ success: false, status: response.status, error: errorText });
+      }
+    } catch (error) {
+      console.log('AI Events request failed:', error);
+      res.json({ success: false, error: String(error) });
+    }
+  });
+
   // Fetch N8N webhook response endpoint
   app.post('/api/webhook/fetch', async (req, res) => {
     try {

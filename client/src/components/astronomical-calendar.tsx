@@ -56,13 +56,15 @@ export default function AstronomicalCalendar() {
     setN8nOutput('');
   };
 
-  // Fetch N8N webhook output for selected date
+  // Fetch AI Historical Events from N8N workflow for selected date
   const fetchN8nOutput = async () => {
     if (!selectedDate) return;
     
     setFetchingN8n(true);
+    setN8nOutput(''); // Clear previous output
+    
     try {
-      const response = await fetch('/api/webhook/fetch', {
+      const response = await fetch('/api/webhook/ai-events', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +75,7 @@ export default function AstronomicalCalendar() {
           year: selectedDate.getFullYear(),
           day: selectedDate.getDate(),
           timestamp: Date.now(),
-          request_type: 'calendar_ai_history_fetch',
+          request_type: 'ai_historical_events',
           user_action: 'fetch_ai_events_for_date'
         }),
       });
@@ -81,13 +83,13 @@ export default function AstronomicalCalendar() {
       const result = await response.json();
       if (result.success) {
         setN8nOutput(result.data);
-        console.log('✅ AI Historical Events fetched for calendar:', result.data);
+        console.log('✅ AI Historical Events fetched:', result.data);
       } else {
-        setN8nOutput(`Error: ${result.status} - ${result.error}`);
+        setN8nOutput(`Error: ${result.status} - ${result.error || 'Failed to get AI response'}`);
         console.log('⚠️ AI Historical Events fetch failed:', result.status);
       }
     } catch (error) {
-      setN8nOutput('Failed to fetch AI Historical Events');
+      setN8nOutput('Failed to fetch AI Historical Events. Please try again.');
       console.log('📡 AI Historical Events fetch error:', error);
     } finally {
       setFetchingN8n(false);
@@ -255,15 +257,22 @@ export default function AstronomicalCalendar() {
                     disabled={fetchingN8n}
                     className="w-full bg-gradient-to-r from-blue-400 to-purple-400 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-400/80 hover:to-purple-400/80 transition-all disabled:opacity-50"
                   >
-                    {fetchingN8n ? 'Fetching AI Historical Events...' : 'Get AI Historical Events for Selected Date'}
+                    {fetchingN8n ? 'Loading AI Historical Events...' : 'Get AI Historical Events'}
                   </button>
                   
-                  {n8nOutput && (
+                  {fetchingN8n && (
+                    <div className="bg-black/30 border border-blue-400/30 rounded-lg p-4 text-center">
+                      <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-400 mx-auto mb-2"></div>
+                      <p className="text-blue-400 text-sm">Processing your request...</p>
+                    </div>
+                  )}
+                  
+                  {n8nOutput && !fetchingN8n && (
                     <div className="bg-black/30 border border-blue-400/30 rounded-lg p-4 text-left">
-                      <h4 className="text-blue-400 font-medium mb-2">AI Historical Events Response:</h4>
-                      <pre className="text-sm text-gray-300 whitespace-pre-wrap overflow-auto max-h-64">
+                      <h4 className="text-blue-400 font-medium mb-2">AI Historical Events:</h4>
+                      <div className="text-sm text-gray-300 whitespace-pre-wrap overflow-auto max-h-64">
                         {n8nOutput}
-                      </pre>
+                      </div>
                     </div>
                   )}
                 </div>
