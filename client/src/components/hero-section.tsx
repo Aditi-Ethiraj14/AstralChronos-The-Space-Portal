@@ -23,8 +23,8 @@ export default function HeroSection() {
 
   // Send current date to webhook for space history
   const sendDateToWebhook = (currentDate: string) => {
-    // Send via server proxy to avoid CORS
-    fetch('/api/webhook/send', {
+    // Send via server proxy to avoid CORS - uses hero section webhook
+    fetch('/api/webhook/hero', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,12 +39,12 @@ export default function HeroSection() {
       }),
     }).then(response => response.json()).then(data => {
       if (data.success) {
-        console.log('✅ History webhook sent successfully:', currentDate);
+        console.log('✅ Hero webhook sent successfully:', currentDate);
       } else {
-        console.log('⚠️ History webhook failed:', data.status, currentDate);
+        console.log('⚠️ Hero webhook failed:', data.status, currentDate);
       }
     }).catch(() => {
-      console.log('📡 History webhook attempted, Date:', currentDate);
+      console.log('📡 Hero webhook attempted, Date:', currentDate);
     });
   };
 
@@ -52,7 +52,7 @@ export default function HeroSection() {
   const fetchN8nOutput = async () => {
     setFetchingN8n(true);
     try {
-      const response = await fetch('/api/webhook/fetch', {
+      const response = await fetch('/api/webhook/hero', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,15 +68,39 @@ export default function HeroSection() {
       
       const result = await response.json();
       if (result.success) {
-        setN8nOutput(result.data);
-        console.log('✅ N8N output fetched:', result.data);
+        // Parse the webhook response data to extract text
+        let outputText = '';
+        try {
+          if (typeof result.data === 'string') {
+            // Try to parse if it's a JSON string
+            try {
+              const parsed = JSON.parse(result.data);
+              if (parsed.text) {
+                outputText = parsed.text;
+              } else {
+                outputText = result.data;
+              }
+            } catch {
+              outputText = result.data;
+            }
+          } else if (result.data?.text) {
+            outputText = result.data.text;
+          } else {
+            outputText = JSON.stringify(result.data);
+          }
+        } catch {
+          outputText = result.data || 'No data received';
+        }
+        
+        setN8nOutput(outputText);
+        console.log('✅ Hero N8N output fetched:', outputText);
       } else {
         setN8nOutput(`Error: ${result.status} - ${result.error}`);
-        console.log('⚠️ N8N fetch failed:', result.status);
+        console.log('⚠️ Hero N8N fetch failed:', result.status);
       }
     } catch (error) {
       setN8nOutput('Failed to fetch N8N output');
-      console.log('📡 N8N fetch error:', error);
+      console.log('📡 Hero N8N fetch error:', error);
     } finally {
       setFetchingN8n(false);
     }

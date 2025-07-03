@@ -37,6 +37,40 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   
 
+  // Hero section webhook endpoint - separate from calendar
+  app.post('/api/webhook/hero', async (req, res) => {
+    try {
+      // TODO: Replace with your new hero section webhook URL
+      const heroWebhookUrl = "YOUR_NEW_HERO_WEBHOOK_URL_HERE";
+
+      console.log('Sending to hero webhook:', heroWebhookUrl);
+      console.log('Hero payload:', JSON.stringify(req.body, null, 2));
+
+      const response = await fetch(heroWebhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(req.body),
+      });
+
+      console.log('Hero webhook response status:', response.status);
+
+      if (response.ok) {
+        const text = await response.text();
+        console.log('Hero webhook response:', text);
+        res.json({ success: true, data: text, status: response.status });
+      } else {
+        const errorText = await response.text();
+        console.log('Hero webhook error:', errorText);
+        res.json({ success: false, status: response.status, error: errorText });
+      }
+    } catch (error) {
+      console.log('Hero webhook request failed:', error);
+      res.json({ success: false, error: String(error) });
+    }
+  });
+
   // Fetch N8N webhook response endpoint
   app.post('/api/webhook/fetch', async (req, res) => {
     try {
