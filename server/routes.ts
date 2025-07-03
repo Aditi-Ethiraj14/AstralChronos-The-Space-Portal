@@ -5,7 +5,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Webhook proxy endpoint to avoid CORS issues
   app.post('/api/webhook/send', async (req, res) => {
     try {
-      const webhookUrl = "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
+      const webhookUrl = "https://adie13.app.n8n.cloud/webhook-test/7825313f-a417-4ce7-802f-ecdd48dabbed";
 
       console.log('Sending to webhook:', webhookUrl);
       console.log('Payload:', JSON.stringify(req.body, null, 2));
@@ -38,7 +38,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Fetch N8N webhook response endpoint
   app.post('/api/webhook/fetch', async (req, res) => {
     try {
-      const webhookUrl = "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
+      const webhookUrl = "https://adie13.app.n8n.cloud/webhook-test/7825313f-a417-4ce7-802f-ecdd48dabbed";
 
       console.log('Fetching from N8N webhook:', webhookUrl);
       console.log('Fetch payload:', JSON.stringify(req.body, null, 2));
