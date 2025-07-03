@@ -46,7 +46,7 @@ export default function FloatingChatbot() {
     try {
       // Send to N8N webhook
       const webhookUrl = import.meta.env.VITE_N8N_CHATBOT_WEBHOOK || '';
-      
+
       let botResponse = "I'm here to help with space questions! Unfortunately, my AI connection is currently unavailable, but I'd love to chat about space exploration, planets, or astronomy.";
 
       if (webhookUrl) {
@@ -70,7 +70,7 @@ export default function FloatingChatbot() {
       };
 
       setMessages(prev => [...prev, botMessage]);
-      
+
       // Speak the response if speech synthesis is available
       speak(botResponse);
 
@@ -124,7 +124,7 @@ export default function FloatingChatbot() {
                 <X className="w-4 h-4" />
               </Button>
             </div>
-            
+
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
               {messages.map((message) => (
                 <motion.div
@@ -160,7 +160,7 @@ export default function FloatingChatbot() {
                 </motion.div>
               )}
             </div>
-            
+
             <form onSubmit={handleSubmit} className="p-4 border-t border-gray-600">
               <div className="flex space-x-2">
                 <Input
@@ -211,7 +211,7 @@ export default function FloatingChatbot() {
                   {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
                 </Button>
               </div>
-              
+
               {isListening && (
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -226,7 +226,7 @@ export default function FloatingChatbot() {
           </motion.div>
         )}
       </AnimatePresence>
-      
+
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         className="w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center glow-button animate-float"
