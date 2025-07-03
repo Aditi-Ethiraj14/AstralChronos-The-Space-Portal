@@ -40,8 +40,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Hero section webhook endpoint - separate from calendar
   app.post('/api/webhook/hero', async (req, res) => {
     try {
-      // TODO: Replace with your new hero section webhook URL
-      const heroWebhookUrl = "YOUR_NEW_HERO_WEBHOOK_URL_HERE";
+      // Hero section webhook URL - separate from calendar
+      const heroWebhookUrl = "https://adie13.app.n8n.cloud/webhook-test/8f9defba-3665-465a-b86f-";
 
       console.log('Sending to hero webhook:', heroWebhookUrl);
       console.log('Hero payload:', JSON.stringify(req.body, null, 2));
