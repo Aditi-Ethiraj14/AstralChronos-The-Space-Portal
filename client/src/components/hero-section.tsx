@@ -23,6 +23,7 @@ export default function HeroSection() {
 
   // Send current date to webhook for space history
   const sendDateToWebhook = (currentDate: string) => {
+    setFetchingN8n(true);
     // Send via server proxy to avoid CORS - uses hero section webhook
     fetch('/api/webhook/hero', {
       method: 'POST',
@@ -40,11 +41,40 @@ export default function HeroSection() {
     }).then(response => response.json()).then(data => {
       if (data.success) {
         console.log('✅ Hero webhook sent successfully:', currentDate);
+        // Parse and display the N8N response automatically
+        let outputText = '';
+        try {
+          if (typeof data.data === 'string') {
+            try {
+              const parsed = JSON.parse(data.data);
+              if (parsed.text) {
+                outputText = parsed.text;
+              } else {
+                outputText = data.data;
+              }
+            } catch {
+              outputText = data.data;
+            }
+          } else if (data.data?.text) {
+            outputText = data.data.text;
+          } else {
+            outputText = JSON.stringify(data.data);
+          }
+        } catch {
+          outputText = data.data || 'No data received';
+        }
+        
+        setN8nOutput(outputText);
+        console.log('✅ Hero N8N output auto-fetched:', outputText);
       } else {
         console.log('⚠️ Hero webhook failed:', data.status, currentDate);
+        setN8nOutput(`Error: ${data.status} - ${data.error}`);
       }
-    }).catch(() => {
+      setFetchingN8n(false);
+    }).catch((error) => {
       console.log('📡 Hero webhook attempted, Date:', currentDate);
+      setN8nOutput('Failed to fetch N8N output');
+      setFetchingN8n(false);
     });
   };
 
@@ -190,23 +220,32 @@ export default function HeroSection() {
                   <span className="px-3 py-1 rounded-full text-sm" style={{ backgroundColor: 'hsl(250, 85%, 60%, 0.3)' }}>{todayEvent.category}</span>
                 </div>
                 
-                <button
-                  onClick={fetchN8nOutput}
-                  disabled={fetchingN8n}
-                  className="w-full bg-gradient-to-r from-blue-400 to-purple-400 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-400/80 hover:to-purple-400/80 transition-all disabled:opacity-50 mb-3"
-                >
-                  {fetchingN8n ? 'Fetching N8N Output...' : 'Get AI Response for Today'}
-                </button>
-                
-                {n8nOutput && (
-                  <div className="bg-black/30 border border-blue-400/30 rounded-lg p-4 text-left">
-                    <h4 className="text-blue-400 font-medium mb-2">N8N Webhook Response:</h4>
+                {fetchingN8n ? (
+                  <div className="w-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 text-white px-4 py-2 rounded-lg font-medium mb-3 flex items-center justify-center">
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                    Processing workflow...
+                  </div>
+                ) : n8nOutput ? (
+                  <div className="bg-black/30 border border-blue-400/30 rounded-lg p-4 text-left mb-3">
+                    <h4 className="text-blue-400 font-medium mb-2">Today's Space History:</h4>
                     <pre className="text-sm text-gray-300 whitespace-pre-wrap overflow-auto max-h-32" id="output">
                       {n8nOutput}
                     </pre>
                   </div>
+                ) : (
+                  <button
+                    onClick={fetchN8nOutput}
+                    className="w-full bg-gradient-to-r from-blue-400 to-purple-400 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-400/80 hover:to-purple-400/80 transition-all mb-3"
+                  >
+                    Get AI Response for Today
+                  </button>
                 )}
               </>
+            ) : fetchingN8n ? (
+              <div className="text-gray-300 flex items-center justify-center">
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-300 mr-2"></div>
+                Processing workflow...
+              </div>
             ) : (
               <p className="text-gray-300">Loading today's space event...</p>
             )}
