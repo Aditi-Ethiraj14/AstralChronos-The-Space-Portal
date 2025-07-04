@@ -20,5 +20,6 @@
       "@shared/*": ["./shared/*"],
       "@components/*": ["./client/src/components/*"]
     }
+    
   }
 }

@@ -45,7 +45,7 @@ export default function FloatingChatbot() {
 
     try {
       // Send to new N8N chatbot webhook
-      const webhookUrl = "https://adie13.app.n8n.cloud/webhook-test/a21bcd3a-9aa0-4087-800a-a10530eef4cc";
+      const webhookUrl = "https://adie13.app.n8n.cloud/webhook/a21bcd3a-9aa0-4087-800a-a10530eef4cc";
 
       let botResponse = "I'm here to help with space questions! Unfortunately, my AI connection is currently unavailable, but I'd love to chat about space exploration, planets, or astronomy.";
 

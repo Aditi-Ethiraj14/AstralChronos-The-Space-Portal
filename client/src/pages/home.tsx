@@ -68,7 +68,7 @@ export default function Home() {
             <div className="w-full h-full relative flex items-center justify-center">
               <video
                 ref={videoRef}
-                src="/intros.mp4"
+                src="/intr.mp4"
                 className="w-full h-full object-contain"
                 playsInline
                 muted

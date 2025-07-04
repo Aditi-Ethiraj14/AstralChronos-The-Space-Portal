@@ -95,7 +95,7 @@ export default function SpaceTimeline() {
         {/* Timeline Navigation Hint */}
         <div className="text-center mt-8">
           <p className="text-gray-400 text-sm" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-            ← Scroll horizontally to explore {timelineEvents.length} major space milestones →
+            ← Scroll horizontally to explore some major space milestones →
           </p>
         </div>
       </div>
