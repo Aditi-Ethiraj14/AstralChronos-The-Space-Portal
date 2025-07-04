@@ -147,7 +147,7 @@ useEffect(() => {
             <span className="text-stellar-orange">{safeData.moonset}</span>
           </div>
         </div>
-
+        <div className="my-4 w-full border-t-2 border-white/80" />
         <div className="mt-4 space-y-2 text-sm">
           <div className="flex justify-between">
             <span className="text-gray-300">Sunrise:</span>
@@ -246,7 +246,8 @@ useEffect(() => {
       className="text-xl mb-4 text-electric-blue flex items-center"
       style={{ fontFamily: "Orbitron, monospace" }}
     >
-      👨‍🚀 Astronauts in Space
+      <Zap className="w-5 h-5 mr-2" />
+      Recent Space Travellers
     </h3>
 
     <Astronauts />

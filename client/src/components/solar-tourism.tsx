@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { Ticket } from "lucide-react";
+
 
 interface Planet {
   id: string;
@@ -21,6 +23,11 @@ interface TripPlan {
   temperature: string;
   satellites: string;
   funFact: string;
+  ticketId: string;
+  travelDuration: string;
+  distanceLightYears: string;
+  spaceShuttle: string; 
+
 }
 
 export default function SolarTourism() {
@@ -35,6 +42,19 @@ export default function SolarTourism() {
       return planetsData;
     }
   });
+ const travelPlanTemplates = [
+  (planetName: string) => `Embark on a thrilling voyage to ${planetName}, where futuristic propulsion systems will carry you across the cosmos. Witness interstellar dust storms, pass through asteroid belts, and marvel at the celestial beauty that surrounds your route.`,
+  (planetName: string) => `Prepare for an epic expedition to ${planetName}, a multi-month journey that will immerse you in the silence of space, cosmic radiation dances, and the wonders of gravitational slingshots. Ideal for adventurers seeking the ultimate galactic thrill.`,
+  (planetName: string) => `Your mission to ${planetName} begins with a launch through the mesosphere, climbing beyond Earth’s gravity well into deep space. You’ll experience cosmic radiation shielding, stellar views, and alien terrain upon arrival.`,
+  (planetName: string) => `Venture to ${planetName} aboard a next-generation star cruiser equipped with AI navigation and cryo-sleep pods. Traverse asteroid highways, glimpse passing comets, and approach the majestic body with awe and curiosity.`,
+  (planetName: string) => `Launch toward ${planetName} for a transformative space odyssey. This interplanetary route includes gravitational boosts from nearby planets, panoramic views of dying stars, and deep-space silence broken only by your thoughts.`,
+  (planetName: string) => `Your cosmic journey to ${planetName} will span light-days of travel. Equipped with zero-gravity living modules and augmented reality windows, the craft offers a front-row seat to the evolving story of our solar system.`,
+  (planetName: string) => `Fasten in for a breathtaking ride to ${planetName}. With ion engines humming and starfields dancing outside your cabin, this isn’t just a voyage—it’s an awakening of the explorer within you.`,
+  (planetName: string) => `Soar across vast expanses of space toward ${planetName}, passing planetary rings, frozen moons, and solar flares. Advanced shielding tech ensures your safety while nature delivers the jaw-dropping spectacle of the void.`,
+  (planetName: string) => `Journey to ${planetName} through a meticulously charted trajectory, encountering Lagrange points and space stations en route. Expect a scientifically engineered adventure wrapped in a cinematic experience.`,
+  (planetName: string) => `Brace yourself for an unforgettable trip to ${planetName}, curated by astro-tourism experts. Traverse through time dilation pockets, witness the curvature of space, and arrive ready to walk on alien soil.`
+];
+
 
   const generateTripMutation = useMutation({
     mutationFn: async (planetId: string) => {
@@ -46,11 +66,15 @@ export default function SolarTourism() {
         if (!planet) throw new Error('Planet not found');
         
         return {
-          travelPlan: `Your journey to ${planet.name} will be an incredible adventure spanning several months using advanced propulsion technology. You'll experience breathtaking views and unique phenomena along the way.`,
-          gear: ['EVA Suit', 'Radiation Shield', 'Oxygen Recycler', 'Navigation System'],
+          travelPlan: travelPlanTemplates[Math.floor(Math.random() * travelPlanTemplates.length)](planet.name),
+          gear: planet.gear,
           temperature: planet.temperature,
           satellites: planet.satellites,
-          funFact: planet.funFact
+          funFact: planet.funFact,
+          ticketId: `TCK-${Math.floor(100000 + Math.random() * 900000)}`,
+          travelDuration: planet.travelDuration,
+          distanceLightYears: planet.distanceLightYears,
+          spaceShuttle: planet.spaceShuttle
         };
       }
 
@@ -127,33 +151,33 @@ export default function SolarTourism() {
               <h3 className="text-2xl mb-6" style={{ fontFamily: 'Orbitron, monospace', color: 'hsl(207, 90%, 54%)' }}>
                 Choose Your Destination
               </h3>
-              <div className="grid grid-cols-2 gap-4">
-                {planets.map((planet: Planet) => (
-                  <motion.div
-                    key={planet.id}
-                    className={`rounded-lg p-4 cursor-pointer transition-colors group ${
-                      selectedPlanet === planet.id ? 'ring-2 ring-blue-400' : ''
-                    }`}
-                    style={{ 
-                      backgroundColor: 'hsl(220, 69%, 36%, 0.2)',
-                      ':hover': { backgroundColor: 'hsl(220, 69%, 36%, 0.4)' }
-                    }}
-                    onClick={() => handlePlanetSelect(planet.id)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <img 
-                      src={planet.image} 
-                      alt={planet.name}
-                      className="w-full h-24 object-cover rounded-lg mb-3"
-                    />
-                    <h4 className="font-semibold text-center transition-colors group-hover:text-orange-400">
-                      {planet.name}
-                    </h4>
-                    <p className="text-xs text-gray-400 text-center">{planet.description}</p>
-                  </motion.div>
-                ))}
-              </div>
+              <div className="max-h-[400px] overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-transparent p-3">
+                <div className="grid grid-cols-2 gap-3">
+                  {planets.map((planet: Planet) => (
+                    <motion.div
+        key={planet.id}
+        className={`rounded-lg p-4 cursor-pointer transition-colors group ${
+          selectedPlanet === planet.id ? 'ring-2 ring-blue-400' : ''
+        }`}
+        style={{ backgroundColor: 'hsl(220, 69%, 36%, 0.2)' }}
+        onClick={() => handlePlanetSelect(planet.id)}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <img 
+          src={planet.image} 
+          alt={planet.name}
+          className="w-full h-24 object-cover rounded-lg mb-3"
+        />
+        <h4 className="font-semibold text-center transition-colors group-hover:text-orange-400">
+          {planet.name}
+        </h4>
+        <p className="text-xs text-gray-400 text-center">{planet.description}</p>
+      </motion.div>
+    ))}
+  </div>
+</div>
+
               
               <Button
                 onClick={handleGenerateTrip}
@@ -210,6 +234,29 @@ export default function SolarTourism() {
                         {tripPlan.temperature}
                       </p>
                     </div>
+
+                    {/* Travel Duration */}
+<div>
+  <h4 className="font-semibold mb-2 flex items-center">
+    <Rocket className="w-4 h-4 mr-2" style={{ color: 'hsl(207, 90%, 54%)' }} />
+    Travel Duration
+  </h4>
+  <p className="text-sm" style={{ fontFamily: 'JetBrains Mono, monospace', color: 'hsl(35, 91%, 48%)' }}>
+    {tripPlan.travelDuration}
+  </p>
+</div>
+
+{/* Distance from Earth */}
+<div>
+  <h4 className="font-semibold mb-2 flex items-center">
+    <MapPin className="w-4 h-4 mr-2" style={{ color: 'hsl(207, 90%, 54%)' }} />
+    Distance from Earth
+  </h4>
+  <p className="text-sm" style={{ fontFamily: 'JetBrains Mono, monospace', color: 'hsl(35, 91%, 48%' }}>
+    {tripPlan.distanceLightYears}
+  </p>
+</div>
+
                     <div>
                       <h4 className="font-semibold mb-2 flex items-center">
                         <Satellite className="w-4 h-4 mr-2" style={{ color: 'hsl(207, 90%, 54%)' }} />
@@ -220,7 +267,7 @@ export default function SolarTourism() {
                       </p>
                     </div>
                   </div>
-                  
+        
                   <div>
                     <h4 className="font-semibold mb-2 flex items-center">
                       <Star className="w-4 h-4 mr-2" style={{ color: 'hsl(207, 90%, 54%)' }} />
@@ -228,6 +275,33 @@ export default function SolarTourism() {
                     </h4>
                     <p className="text-gray-300 text-sm">{tripPlan.funFact}</p>
                   </div>
+{/* Ticket ID & Space Shuttle Side-by-Side */}
+{tripPlan.ticketId && tripPlan.spaceShuttle && (
+  <div className="grid grid-cols-2 gap-4">
+    {/* Ticket ID */}
+    <div>
+      <h4 className="font-semibold mb-2 flex items-center">
+        <Ticket className="w-4 h-4 mr-2" style={{ color: 'hsl(207, 90%, 54%)' }} />
+        Ticket ID
+      </h4>
+      <p className="text-sm" style={{ fontFamily: 'JetBrains Mono, monospace', color: 'hsl(291, 81%, 60%)' }}>
+        {tripPlan.ticketId}
+      </p>
+    </div>
+
+    {/* Space Shuttle */}
+    <div>
+      <h4 className="font-semibold mb-2 flex items-center">
+        <Briefcase className="w-4 h-4 mr-2" style={{ color: 'hsl(207, 90%, 54%)' }} />
+        Space Shuttle
+      </h4>
+      <p className="text-sm" style={{ fontFamily: 'JetBrains Mono, monospace', color: 'hsl(291, 81%, 60%)' }}>
+        {tripPlan.spaceShuttle}
+      </p>
+    </div>
+  </div>
+)}
+
                 </div>
               ) : (
                 <div className="text-center text-gray-400 py-8">

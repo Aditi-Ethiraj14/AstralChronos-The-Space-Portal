@@ -9,6 +9,7 @@ interface TimelineEvent {
   date: string;
   category: string;
   image: string;
+  link?: string;
 }
 
 export default function SpaceTimeline() {
@@ -52,7 +53,14 @@ export default function SpaceTimeline() {
                   <div className="text-4xl mb-3 font-bold" style={{ fontFamily: 'Orbitron, monospace', color: 'hsl(35, 91%, 48%)' }}>
                     {event.year}
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-400 transition-colors">{event.title}</h3>
+                  <a
+                  href={event.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl font-semibold mb-3 group-hover:text-blue-400 transition-colors hover:underline">
+                  {event.title}
+                  </a>
+
                   <img 
                     src={event.image} 
                     alt={event.title}
