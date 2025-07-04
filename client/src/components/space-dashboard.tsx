@@ -234,7 +234,7 @@ useEffect(() => {
             </motion.div>
           ))}
           <motion.div
-  className="glass-morphism rounded-xl p-6 flex flex-col md:flex-row justify-between gap-6 md:col-span-2"
+  className="glass-morphism rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 md:col-span-2"
   initial={{ opacity: 0, y: 50 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ delay: 0.3, duration: 0.6 }}
@@ -292,11 +292,11 @@ useEffect(() => {
     className="text-xl mb-4 text-electric-blue flex items-center"
     style={{ fontFamily: "Orbitron, monospace" }}
   >
-    <Newspaper className="w-5 h-5 mr-2" />
+    <Newspaper className="w-5 h-8 mr-2" />
     Space News
   </h3>
 
-  <div className="space-y-3 max-h-64 overflow-y-auto pr-1 scroll-smooth scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent">
+  <div className="space-y-3 max-h-80 overflow-y-auto pr-1 scroll-smooth scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent">
     {articles.map((article) => (
       <div key={article.id} className="border-b border-gray-600 pb-2">
         <a href={article.url} target="_blank" rel="noopener noreferrer">
@@ -323,31 +323,46 @@ useEffect(() => {
   );
 }
 
+type Astronaut = {
+  name: string;
+  spacecraft: string;
+};
+
 function Astronauts() {
-  const [astronauts, setAstronauts] = useState<{ name: string; craft: string }[]>([]);
+  const [astronauts, setAstronauts] = useState<Astronaut[]>([]);
 
   useEffect(() => {
-    fetch("/api/nasa/astronauts") // 👈 now hitting your backend instead of external API
-      .then((res) => res.json())
-      .then((data) => setAstronauts(data.people || []))
-      .catch((err) => console.error("Failed to fetch astronauts", err));
+    fetch("/api/nasa/astronauts")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch astronauts");
+        return res.json();
+      })
+      .then((data) => {
+        if (data.people?.length) {
+          setAstronauts(data.people);
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to fetch astronauts", err);
+      });
   }, []);
 
   if (astronauts.length === 0) return null;
 
   return (
     <div className="mt-4 text-sm text-gray-300">
-      <ul className="list-disc list-inside space-y-1">
+      <ul className="list-inside space-y-2">
         {astronauts.map((astro, i) => (
           <li key={i}>
-            {astro.name} —{" "}
-            <span className="italic text-gray-400">{astro.craft}</span>
+            <span className="font-semibold">{i + 1}. {astro.name}</span> —{" "}
+            <span className="italic text-gray-400">{astro.spacecraft}</span>
           </li>
         ))}
       </ul>
     </div>
   );
 }
+
 function SpaceNews() {
   const [articles, setArticles] = useState<{ title: string; published_at: string; url: string }[]>([]);
 
