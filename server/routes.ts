@@ -233,6 +233,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
   }
 });
 
+   // server.js or routes/api.js
+
+app.get("/api/nasa/astronauts", async (req, res) => {
+  try {
+    const response = await fetch("http://api.open-notify.org/astros.json");
+
+    if (!response.ok) throw new Error("Failed to fetch astronaut data");
+
+    const data = await response.json();
+
+    res.json({ people: data.people || [] });
+  } catch (err) {
+    // Optional fallback
+    res.json({
+      people: [
+        { name: "Placeholder Astronaut 1", craft: "ISS" },
+        { name: "Placeholder Astronaut 2", craft: "ISS" },
+      ],
+    });
+  }
+});
+
+
   // Chatbot webhook proxy
   app.post("/api/chatbot", async (req, res) => {
     try {

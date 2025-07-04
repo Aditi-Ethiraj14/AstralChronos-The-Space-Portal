@@ -326,28 +326,27 @@ function Astronauts() {
   const [astronauts, setAstronauts] = useState<{ name: string; craft: string }[]>([]);
 
   useEffect(() => {
-    fetch('http://api.open-notify.org/astros.json')
-      .then(res => res.json())
-      .then(data => setAstronauts(data.people || []))
-      .catch(err => console.error("Failed to fetch astronaut data", err));
+    fetch("/api/nasa/astronauts") // 👈 now hitting your backend instead of external API
+      .then((res) => res.json())
+      .then((data) => setAstronauts(data.people || []))
+      .catch((err) => console.error("Failed to fetch astronauts", err));
   }, []);
 
   if (astronauts.length === 0) return null;
 
   return (
     <div className="mt-4 text-sm text-gray-300">
-      <h4 className="font-semibold mb-1"></h4>
       <ul className="list-disc list-inside space-y-1">
         {astronauts.map((astro, i) => (
           <li key={i}>
-            {astro.name} — <span className="italic text-gray-400">{astro.craft}</span>
+            {astro.name} —{" "}
+            <span className="italic text-gray-400">{astro.craft}</span>
           </li>
         ))}
       </ul>
     </div>
   );
 }
-
 function SpaceNews() {
   const [articles, setArticles] = useState<{ title: string; published_at: string; url: string }[]>([]);
 
