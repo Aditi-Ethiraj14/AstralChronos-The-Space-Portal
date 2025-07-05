@@ -19,76 +19,50 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 - **Runtime**: Node.js with TypeScript
 - **Framework**: Express.js for REST API endpoints
 - **Development Server**: Custom Vite integration for hot module replacement
-- **Data Storage**: In-memory storage with interface for future database integration
-- **Session Management**: Express sessions with PostgreSQL session store (connect-pg-simple)
-
-### Database Strategy
-- **Current**: In-memory storage implementation (MemStorage class)
-- **Planned**: PostgreSQL with Drizzle ORM for production deployment
-- **Schema**: User authentication system with extensible design
-- **Migrations**: Drizzle Kit for database schema management
+- **Data Storage**: Lightweight backend powered by a static JSON file, acting as the primary data store.
 
 ## Key Components
 
 ### Space Data Integration
 - **NASA APIs**: Integration with NASA's Astronomy Picture of the Day (APOD) and other space data APIs
 - **ISS Tracking**: Real-time International Space Station location tracking
-- **Astronomical Events**: Historical space event timeline and calendar system
+- **Astronomical Events**: Historical space event timeline and calendar system with AI integration
 - **Moon Phase Data**: Lunar cycle information and visualization
 
 ### Interactive Features
 - **Space Timeline**: Chronological visualization of major space exploration milestones
-- **Astronomical Calendar**: Monthly view of space events with interactive date selection
 - **Space Dashboard**: Real-time data display for ISS location, moon phases, and NASA imagery
 - **Quiz System**: Educational quizzes on space topics with progress tracking
-- **Virtual Tourism**: AI-powered space travel planning for fictional planetary destinations
+- **Virtual Tourism**: Space travel planning for fictional planetary destinations
 
 ### AI Integration
 - **Chatbot Assistant**: Voice and text-enabled space exploration assistant
 - **N8N Webhooks**: Integration with N8N automation platform for AI capabilities
-- **Real-time Date Integration**: Calendar and history sections send current date data to webhooks
-- **Dynamic Content**: Webhook responses can provide real-time space event information
+- **Dynamic Content and Real-Time Updates**: Webhook responses can provide real-time space event information
 - **Speech Recognition**: Browser-based speech-to-text functionality
 - **Text-to-Speech**: Browser-based speech synthesis for responses
 
 ### User Interface
-- **Responsive Design**: Mobile-first approach with adaptive layouts
-- **Space Theme**: Dark theme with cosmic color palette (space-black, cosmic-blue, nebula-purple, stellar-orange)
+- **Responsive Design**: Seamlessly adapts across all devices with a fully responsive layout.
+- **Space Theme**: Dark theme with cosmic color palette
 - **Interactive Elements**: Hover effects, animations, and smooth scrolling navigation
-- **Accessibility**: ARIA labels, keyboard navigation, and screen reader support
 
-## Data Flow
-
-### Client-Side Data Flow
-1. **Static Data**: JSON files loaded dynamically for space events, planet information, and quiz content
-2. **API Integration**: React Query manages NASA API calls with caching and error handling
-3. **Real-time Updates**: Periodic refetching of ISS location and astronomical data
-4. **User Interactions**: Event-driven updates for calendar selections, quiz progress, and chatbot conversations
-
-### Server-Side Data Flow
-1. **API Proxying**: Express routes proxy NASA API calls to handle CORS and API key management
-2. **Data Processing**: Server-side filtering and formatting of space event data
-3. **Session Management**: User authentication and session persistence
-4. **External Integrations**: N8N webhook communications for AI-powered features
-
-## External Dependencies
-
-### Core Dependencies
-- **React Ecosystem**: React, React DOM, React Query for state management
-- **UI Components**: Radix UI primitives, Lucide React icons
-- **Styling**: Tailwind CSS, class-variance-authority for component variants
-- **Forms**: React Hook Form with Zod validation
-- **Date Handling**: date-fns for date manipulation and formatting
+## Dependencies
 
 ### Development Dependencies
 - **Build Tools**: Vite, ESBuild for production builds
-- **TypeScript**: Full TypeScript support with strict configuration
-- **Database**: Drizzle ORM with PostgreSQL adapter (Neon serverless)
-- **Development**: TSX for TypeScript execution, Replit-specific plugins
+- **TypeScript**: Full TypeScript support with configuration
+
+### Core Dependencies
+- **React Ecosystem**: React, React Query for state management
+- **UI Components**: Radix UI primitives, Lucide React icons
+- **Styling**: Tailwind CSS, class-variance-authority for component variants
 
 ### External APIs
 - **NASA Open Data**: APOD, ISS tracking, and other space data endpoints
 - **N8N Platform**: Webhook integrations for AI chatbot and tourism features
 - **Moon Phase APIs**: Third-party lunar data services (configurable)
 - **News APIs**: Space news integration (configurable)
+- **Webhooks**: Integrated with AI agenst and LLM Modles using n8n AI workflow
+- **3D Models**: Seamlessly embedded interactive models powered by Sketchfab for immersive visualization
 
