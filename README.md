@@ -107,3 +107,6 @@ You can now view it in your browser at:
 ```
 http://localhost:5000
 ```
+## 📜 License
+This project is licensed under the MIT License.
+© 2025 Aditi Ethiraj
