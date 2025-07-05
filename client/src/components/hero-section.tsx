@@ -195,11 +195,13 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <div className="mt-20 text-center">
-  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-float text-6.8xl font-bold">
-    AstralChronos
-  </span>
-</div>
+             <section className="w-full flex items-center justify-center px-4">
+                <div className="mt-20 text-center w-full overflow-hidden">
+                  <span className="inline-block max-w-full break-words bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-float font-bold text-[clamp(2.59rem,9vw,6.1rem)]">
+                    AstralChronos
+                  </span>
+                </div>
+              </section>
 
           </motion.h1>
           
