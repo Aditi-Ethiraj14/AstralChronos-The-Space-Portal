@@ -107,6 +107,36 @@ You can now view it in your browser at:
 ```
 http://localhost:5000
 ```
-## 📜 License
-This project is licensed under the MIT License.
-© 2025 Aditi Ethiraj
+---
+
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE).  
+© 2025 [Aditi Ethiraj]
+
+---
+
+## 📚 Resources & API Credits
+
+Special thanks to these amazing open APIs and libraries that power AstralChronos:
+
+- 🔭 **NASA Open APIs**  
+  [https://api.nasa.gov](https://api.nasa.gov)
+- 📦 **IP Geolocation Astronomy API**  
+  [https://api.ipgeolocation.io/astronomy](https://api.ipgeolocation.io/astronomy)
+- 👨‍🚀 **Corquaid API**  
+  [https://corquaid.github.io/international-space-station-APIs/JSON/people-in-space.json)](https://corquaid.github.io/international-space-station-APIs/JSON/people-in-space.json) 
+- 🛰 **Where the ISS at? API**  
+  [[https://wheretheiss.at](https://wheretheiss.at/w/developer)
+- 🌠 **Spaceflight News API**  
+  [https://api.spaceflightnewsapi.net](https://api.spaceflightnewsapi.net)
+- 🔗 **n8n Workflow Automation**  
+  [https://docs.n8n.io](https://docs.n8n.io)    
+- 🧠 **OpenAI API **  
+  [https://platform.openai.com](https://platform.openai.com)  
+- 🎤 **Web Speech API**  
+  [https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
+- 🧊 **Sketchfab 3D Models**  
+  🧾 Docs: https://sketchfab.com/developers/viewer  
+
+---
