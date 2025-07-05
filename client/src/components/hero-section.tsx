@@ -196,9 +196,9 @@ export default function HeroSection() {
             transition={{ duration: 1 }}
           >
              <section className="w-full text-center px-4 mt-20">
-              <span className="inline-block break-keep max-w-full bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-float font-bold text-[clamp(2.59rem,9vw,6.1rem)]">
-                AstralChronos
-              </span>
+     <span className="inline-block break-keep max-w-full bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-float font-bold text-[clamp(2rem,6vw,4.8rem)]">
+    AstralChronos
+     </span>
             </section>
 
           </motion.h1>
