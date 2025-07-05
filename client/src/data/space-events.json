@@ -251,7 +251,7 @@
   {
     "year": 2024,
     "title": "ISRO XPoSat Launch",
-    "description": "India launched its first dedicated X-ray Polarimeter Satellite (XPoSat) to study space-based polarisation measurements of X-ray emissions from celestial sources, becoming the second nation after NASA to launch such a mission.",
+    "description": "India launched XPoSat, its first X-ray polarimeter, becoming the second nation after NASA to study cosmic X-ray polarisation.",
     "date": "Jan 1, 2024",
     "category": "Launch",
     "image": "https://th-i.thgim.com/public/incoming/majfgy/article67687272.ece/alternates/FREE_1200/PTI09_02_2023_000082A.jpg",
@@ -260,7 +260,7 @@
   {
     "year": 2024,
     "title": "Aditya-L1 Reaches Halo Orbit",
-    "description": "India’s first solar mission, Aditya-L1, successfully reached its destination at the L1 point, 1.5 million km from Earth, providing an uninterrupted view of the Sun and carrying seven payloads to study the Sun's atmosphere.",
+    "description":"Aditya-L1, India’s first solar mission, reached the L1 point 1.5 million km from Earth, carrying seven payloads to study the Sun’s atmosphere.",
     "date": "Jan 6, 2024",
     "category": "Mission",
     "image": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202401/aditya-l1-mission-graphic-04080268-16x9_3.jpg?VersionId=otKKESAOKNotq7FBhaUMvZHaFSxzUeQE&size=690:388",
@@ -269,7 +269,7 @@
   {
     "year": 2024,
     "title": "ISRO SPADEX Mission",
-    "description": "ISRO successfully launched and demonstrated the SPADEX mission, pioneering autonomous spacecraft rendezvous, docking, and undocking using two small satellites, a key step for future space station and deep space missions.",
+    "description": "ISRO's SPADEX mission showcased autonomous docking and undocking using two satellites—vital for future space missions.",
     "date": "Dec 30, 2024",
     "category": "Mission",
     "image": "https://i.cdn.newsbytesapp.com/images/l94420250114195301.jpeg",
@@ -281,14 +281,14 @@
   "title": "Sunita Williams' 286-Day Space Triumph",
   "description": "After a delayed return, Sunita Williams completed 286 days aboard the ISS, marking a major endurance feat.",
   "date": "Mar 18, 2025",
-  "category": "Astronaut Milestone",
+  "category": "Milestone",
   "image": "https://www.financialexpress.com/wp-content/uploads/2024/07/Sunita-williams.jpg?w=1024",
   "link": "https://en.wikipedia.org/wiki/Sunita_Williams"
 },
  {
     "year": 2025,
     "title": "NISAR Earth Observation Satellite Launch",
-    "description": "The NASA-ISRO Synthetic Aperture Radar (NISAR) satellite is set to launch, providing high-precision monitoring of Earth's surface, including earthquakes, volcanic eruptions, deforestation, and ice melt.",
+    "description": "The upcoming NASA-ISRO NISAR satellite will track quakes, volcanoes, deforestation, and ice melt with high precision.",
     "date": "2025",
     "category": "Launch",
     "image": "https://nisar.jpl.nasa.gov/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9337c7899dc0b335f0e5888d01dfd0e90731bbe4/NISAR_LaunchAndDeploy_Short_V02a_Music_480p_CL_20-4559.jpg?disposition=inline",
@@ -297,7 +297,7 @@
   {
     "year": 2025,
     "title": "Shubhanshu Shukla: First Indian on the ISS",
-    "description": "On June 25, 2025, Group Captain Shubhanshu Shukla became the first Indian astronaut to reach the International Space Station (ISS) as mission pilot on the Axiom-4 mission.",
+    "description": "On June 25, 2025, Group Capt. Shubhanshu Shukla became the first Indian astronaut on the ISS as Axiom-4 mission pilot.",
     "date": "Jun 25, 2025",
     "category": "Milestone",
     "image": "https://currentaffairs.adda247.com/wp-content/uploads/multisite/sites/5/2025/06/10165411/Current-Affairs-Quiz-for-Bank-Exams-2023-7.png",
