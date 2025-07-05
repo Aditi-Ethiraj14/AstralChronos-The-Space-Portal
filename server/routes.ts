@@ -197,38 +197,40 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/nasa/moon", async (req, res) => {
+app.get("/api/nasa/moon", async (req, res) => {
   try {
-    const response = await fetch(`https://api.ipgeolocation.io/astronomy?apiKey=YOUR_API_KEY&location=New Delhi`);
+    const response = await fetch("https://api.ipgeolocation.io/astronomy?apiKey=0f6729360e1f479b9dce03977d33b3bd&location=New-Delhi");
     
-    if (!response.ok) {
-      throw new Error("Moon API request failed");
-    }
+    if (!response.ok) throw new Error("Moon API request failed");
 
-    const data = await response.json();
+    const raw = await response.json();
+
+    const formattedPhase = raw.moon_phase
+      .replace(/_/g, " ")
+      .toLowerCase()
+      .replace(/\b\w/g, (c: string) => c.toUpperCase()); // Capitalize each word
 
     res.json({
-      moon_phase: data.moon_phase,
-      moon_illumination: data.moon_illumination,
-      moon_distance: data.moon_distance,
-      next_full_moon: data.next_full_moon,
-      moonrise: data.moonrise,
-      moonset: data.moonset,
-      sunrise: data.sunrise,
-      sunset: data.sunset,
+      moon_phase: formattedPhase, // e.g., Waxing Gibbous
+      moon_illumination: raw.moon_illumination_percentage || "0",
+      moon_distance: Number(raw.moon_distance).toFixed(0),
+      moonrise: raw.moonrise || "--:--",
+      moonset: raw.moonset || "--:--",
+      sunrise: raw.sunrise || "--:--",
+      sunset: raw.sunset || "--:--",
+      date: raw.date || "--"
     });
 
   } catch (error) {
-       // 🧷 Return fallback values
     res.json({
-      moon_phase: "Waning Crescent",
-      moon_illumination: "12",
+      moon_phase: "Waxing Gibbous",
+      moon_illumination: "58",
       moon_distance: "389139",
-      next_full_moon: "2025-07-21",
       moonrise: "19:27",
       moonset: "06:18",
       sunrise: "05:43",
-      sunset: "19:12"
+      sunset: "19:12",
+      date: "2025-07-06"
     });
   }
 });

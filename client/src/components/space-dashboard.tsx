@@ -17,6 +17,7 @@ useEffect(() => {
     .catch((err) => console.error("Failed to fetch space news", err));
 }, []);
 
+
   const dashboardCards = [
     {
       title: "ISS Location",
@@ -90,8 +91,8 @@ useEffect(() => {
   }
 },
 
-    {
-  title: "Moon Phase",
+{
+  title: "Lunar-Helio Stats",
   icon: Moon,
   data: moonData,
   render: (data: any) => {
@@ -106,37 +107,43 @@ useEffect(() => {
       "waning crescent": "🌘"
     };
 
-    const rawPhase = data?.moon_phase || "Waning Crescent";
-    const normalizedPhase = rawPhase.trim().toLowerCase();
+    const rawPhase = data?.moon_phase || "Waxing Gibbous";
+
+    const normalizedPhase = rawPhase.toLowerCase(); // e.g., "waxing gibbous"
     const emoji = moonEmojis[normalizedPhase] || "🌙";
 
     const safeData = {
-      moon_phase: rawPhase,
-      moon_illumination: data?.moon_illumination || "12",
-      moon_distance: data?.moon_distance || "389139",
-      next_full_moon: data?.next_full_moon || "2025-07-21",
-      moonrise: data?.moonrise || "19:27",
-      moonset: data?.moonset || "06:18",
-      sunrise: data?.sunrise || "05:43",
-      sunset: data?.sunset || "19:12"
+      moon_emoji: emoji,
+      moon_phase: rawPhase, // Keep it capitalized like "Waxing Gibbous"
+      moon_illumination: data?.moon_illumination || "58",
+      moon_distance: data?.moon_distance || "404882 km",
+      moonrise: data?.moonrise || "14:48",
+      moonset: data?.moonset || "00:56",
+      sunrise: data?.sunrise || "05:24",
+      sunset: data?.sunset || "19:28",
+      date: data?.date || "2025-07-06"
     };
 
     return (
       <>
         <div className="text-center mb-4">
-          <div className="text-8xl mb-8">{emoji}</div> 
+          <div className="text-8xl mb-8">{safeData.moon_emoji}</div>
           <p className="mt-3 font-semibold">{safeData.moon_phase}</p>
-          <p className="text-sm text-gray-300">{safeData.moon_illumination}% Illuminated</p>
+          <p className="text-sm text-gray-300">
+            {safeData.moon_illumination}% Illuminated
+          </p>
         </div>
 
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
-            <span className="text-gray-300">Next Full Moon:</span>
-            <span className="text-stellar-orange">{safeData.next_full_moon}</span>
+            <span className="text-gray-300">Date:</span>
+            <span className="text-stellar-orange">{safeData.date}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-gray-300">Distance:</span>
-            <span className="text-stellar-orange">{safeData.moon_distance} km</span>
+            <span className="text-gray-300">Moon Distance:</span>
+            <span className="text-stellar-orange">
+              {safeData.moon_distance} km
+            </span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-300">Moonrise:</span>
@@ -147,7 +154,9 @@ useEffect(() => {
             <span className="text-stellar-orange">{safeData.moonset}</span>
           </div>
         </div>
+
         <div className="my-4 w-full border-t-2 border-white/80" />
+
         <div className="mt-4 space-y-2 text-sm">
           <div className="flex justify-between">
             <span className="text-gray-300">Sunrise:</span>
@@ -162,6 +171,7 @@ useEffect(() => {
     );
   }
 },
+
     {
   title: "NASA APOD",
   icon: Image,
@@ -314,9 +324,6 @@ useEffect(() => {
     ))}
   </div>
 </motion.div>
-
-
-         
         </div>
       </div>
     </section>

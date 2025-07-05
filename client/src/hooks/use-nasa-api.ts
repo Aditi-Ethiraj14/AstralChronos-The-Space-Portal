@@ -16,6 +16,12 @@ export function useNasaApi(endpoint: string) {
           const issResponse = await fetch('/api/nasa/iss');
           if (!issResponse.ok) throw new Error('Failed to fetch ISS location');
           return issResponse.json();
+
+        case 'moon':
+  const moonResponse = await fetch('/api/nasa/moon');
+  if (!moonResponse.ok) throw new Error('Failed to fetch Moon data');
+  return moonResponse.json();
+
           
         default:
           throw new Error(`Unknown endpoint: ${endpoint}`);
