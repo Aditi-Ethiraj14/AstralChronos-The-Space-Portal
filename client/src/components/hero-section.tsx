@@ -17,9 +17,11 @@ export default function HeroSection() {
   const [n8nOutput, setN8nOutput] = useState<string>('');
   const [fetchingN8n, setFetchingN8n] = useState(false);
 
-  const today = new Date();
-  const monthDay = `${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
-  const fullDate = today.toISOString().split('T')[0]; // YYYY-MM-DD format
+  const now = new Date();
+  const localDate = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
+  const fullDate = localDate.toISOString().split('T')[0];
+  const monthDay = `${(localDate.getMonth() + 1).toString().padStart(2, '0')}-${localDate.getDate().toString().padStart(2, '0')}`;
+
 
   // Send current date to webhook for space history
   const sendDateToWebhook = (currentDate: string) => {

@@ -4,8 +4,10 @@ export function usePageLoadWebhook() {
   useEffect(() => {
     const sendPageLoadData = () => {
       const today = new Date();
-      const currentDate = today.toISOString().split('T')[0];
-      const monthDay = `${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
+      const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000); // Adjust to local time
+      const currentDate = localDate.toISOString().split('T')[0];
+      const monthDay = `${(localDate.getMonth() + 1).toString().padStart(2, '0')}-${localDate.getDate().toString().padStart(2, '0')}`;
+
       
       // Send via server proxy to avoid CORS
       fetch('/api/webhook/send', {
@@ -19,7 +21,7 @@ export function usePageLoadWebhook() {
           timestamp: Date.now(),
           request_type: 'page_load',
           user_action: 'website_opened',
-          current_time: today.toISOString(),
+          current_time: localDate.toISOString(),
           browser_timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
         }),
       }).then(response => response.json()).then(data => {
