@@ -18,7 +18,7 @@ export default function AstronomicalCalendar() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        selected_date: date.toISOString().split('T')[0],
+        selected_date: date.toLocaleDateString('en-CA'), // 'YYYY-MM-DD'
         month: date.getMonth() + 1,
         year: date.getFullYear(),
         day: date.getDate(),
@@ -71,7 +71,7 @@ export default function AstronomicalCalendar() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          selected_date: selectedDate.toISOString().split('T')[0],
+          selected_date: selectedDate.toLocaleDateString('en-CA'), // ✅ Keeps local date
           month: selectedDate.getMonth() + 1,
           year: selectedDate.getFullYear(),
           day: selectedDate.getDate(),
@@ -256,7 +256,7 @@ export default function AstronomicalCalendar() {
             viewport={{ once: true }}
           >
             <h4 className="text-xl mb-4" style={{ fontFamily: 'Orbitron, monospace', color: 'hsl(35, 91%, 48%)' }}>
-              {selectedDate ? `Events for ${selectedDate.toLocaleDateString()}` : 'Select a date to see events'}
+              {selectedDate ? `Events for ${selectedDate.getDate().toString().padStart(2, '0')}/${(selectedDate.getMonth() + 1).toString().padStart(2, '0')}/${selectedDate.getFullYear()}`: 'Select a date to see events'}
             </h4>
             <div className="space-y-4">
               {selectedDate && getEventsForDate(selectedDate).length > 0 ? (
