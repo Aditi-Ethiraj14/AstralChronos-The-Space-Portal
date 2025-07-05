@@ -142,7 +142,7 @@ Special thanks to these amazing open APIs and libraries that power AstralChronos
   [https://docs.n8n.io](https://docs.n8n.io)    
 - 🧠 **OpenAI API**  
   [https://platform.openai.com](https://platform.openai.com)
-- 📡 ""SERP API **
+- 📡 **SERP API **
   [https://serpapi.com/google-news-api](https://serpapi.com/google-news-api)
 - 🎤 **Web Speech API**  
   [https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
