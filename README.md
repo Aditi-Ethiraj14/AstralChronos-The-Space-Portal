@@ -104,5 +104,5 @@ This will launch the app in development mode.
 You can now view it in your browser at:
 
 ```
-http://localhost:5173
+http://localhost:5000
 ```
