@@ -94,10 +94,6 @@ cp .env.example .env
 
 Now open the `.env` file and fill in the required API keys:
 
-* NASA API key
-* OpenAI / HuggingFace LLM key (if used)
-* Any webhook or public API endpoint used in chatbot/tourism module
-
 ### 4. Start the development server
 
 ```bash
