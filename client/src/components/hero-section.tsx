@@ -195,9 +195,12 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-float">
-              AstralChronos
-            </span>
+            <div className="mt-20 text-center">
+  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-float text-6.8xl font-bold">
+    AstralChronos
+  </span>
+</div>
+
           </motion.h1>
           
           <motion.p 
