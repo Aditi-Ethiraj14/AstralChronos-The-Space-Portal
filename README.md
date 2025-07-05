@@ -41,7 +41,7 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 - **Space Quizzes**: Interactive, fun quizzes to test your space knowledge
 
 ### AI Integration
-- **Chatbot Assistant**: Voice and text-enabled space exploration assistant
+- **Chatbot Assistant**: Voice and text-enabled space exploration assistant with speech and text output
 - **N8N Webhooks**: Integration with N8N automation platform for AI capabilities
 - **Dynamic Content and Real-Time Updates**: Webhook responses can provide real-time space event information
 - **Speech Recognition**: Browser-based speech-to-text functionality
@@ -140,8 +140,10 @@ Special thanks to these amazing open APIs and libraries that power AstralChronos
   [https://api.spaceflightnewsapi.net](https://api.spaceflightnewsapi.net)
 - 🔗 **n8n Workflow Automation**  
   [https://docs.n8n.io](https://docs.n8n.io)    
-- 🧠 **OpenAI API **  
-  [https://platform.openai.com](https://platform.openai.com)  
+- 🧠 **OpenAI API**  
+  [https://platform.openai.com](https://platform.openai.com)
+- 📡 ""SERP API **
+  [https://serpapi.com/google-news-api](https://serpapi.com/google-news-api)
 - 🎤 **Web Speech API**  
   [https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
 - 🧊 **Sketchfab 3D Models**  
