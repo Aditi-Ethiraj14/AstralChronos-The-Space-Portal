@@ -14,6 +14,12 @@ interface QuizCard {
   questions: number;
   image: string;
   questionsData?: QuizQuestion[];
+  questionSets?: {
+    name: string;
+    questionsData: QuizQuestion[];
+  }[];
+
+  
 }
 
 interface QuizQuestion {
@@ -52,18 +58,29 @@ export default function SpaceQuiz() {
   });
 
   const handleStartQuiz = (quiz: QuizCard) => {
-    setActiveQuiz(quiz);
-    setCurrentQuestion(0);
-    setSelectedAnswer(null);
-    setShowExplanation(false);
-    setScore(0);
-    setQuizCompleted(false);
-    setTimer(30);
-    toast({
-      title: "Quiz Started!",
-      description: `Good luck with the ${quiz.title} quiz!`,
-    });
-  };
+  const fullSet = quiz.questionsData || [];
+
+  // Shuffle the full question list
+  const shuffled = [...fullSet].sort(() => Math.random() - 0.5);
+
+  // Slice only the desired number of questions (from "questions" field)
+  const selectedQuestions = shuffled.slice(0, quiz.questions);
+
+  // Set the quiz with the randomized subset
+  setActiveQuiz({ ...quiz, questionsData: selectedQuestions });
+
+  setCurrentQuestion(0);
+  setSelectedAnswer(null);
+  setShowExplanation(false);
+  setScore(0);
+  setQuizCompleted(false);
+  setTimer(30);
+
+  toast({
+    title: "Quiz Started!",
+    description: `Good luck with the ${quiz.title} quiz!`,
+  });
+};
 
   const handleAnswerSelect = (answerIndex: number) => {
     if (selectedAnswer !== null) return;

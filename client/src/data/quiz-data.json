@@ -7,7 +7,7 @@
       "description": "Test your knowledge about the planets, moons, and other celestial bodies in our solar system.",
       "duration": "5 minutes",
       "questions": 10,
-      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
+      "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3f6a30ac-f8b9-4f61-9431-c846090e1154/da5xxu2-81136fa0-f8ed-43f4-9598-04d6bc105942.jpg/v1/fill/w_774,h_1033,q_70,strp/solar_system__portrait__by_davidpenfound_da5xxu2-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNmNmEzMGFjLWY4YjktNGY2MS05NDMxLWM4NDYwOTBlMTE1NFwvZGE1eHh1Mi04MTEzNmZhMC1mOGVkLTQzZjQtOTU5OC0wNGQ2YmMxMDU5NDIuanBnIiwiaGVpZ2h0IjoiPD0xMzY3Iiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uud2F0ZXJtYXJrIl0sIndtayI6eyJwYXRoIjoiXC93bVwvM2Y2YTMwYWMtZjhiOS00ZjYxLTk0MzEtYzg0NjA5MGUxMTU0XC9kYXZpZHBlbmZvdW5kLTQucG5nIiwib3BhY2l0eSI6OTUsInByb3BvcnRpb25zIjowLjQ1LCJncmF2aXR5IjoiY2VudGVyIn19.muRlg2_5h586NEG-Lbh8KJZ_wHdEJ28bitIlhSDieOc",
       "questionsData": [
         {
           "id": 1,
@@ -43,7 +43,113 @@
           "options": ["Mercury", "Venus", "Earth", "Mars"],
           "correct": 1,
           "explanation": "Venus is the hottest planet due to its thick atmosphere causing a runaway greenhouse effect."
-        }
+        },
+        {
+  "id": 6,
+  "question": "Which planet has the most rings?",
+  "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+  "correct": 1,
+  "explanation": "Saturn has the most extensive ring system made of ice and rock."
+},
+{
+  "id": 7,
+  "question": "Which planet has the shortest day?",
+  "options": ["Jupiter", "Mercury", "Mars", "Uranus"],
+  "correct": 0,
+  "explanation": "Jupiter has a very short day — it completes a rotation in about 10 hours."
+},
+{
+  "id": 8,
+  "question": "Which planet rotates on its side?",
+  "options": ["Venus", "Uranus", "Saturn", "Neptune"],
+  "correct": 1,
+  "explanation": "Uranus rotates nearly sideways, with an axial tilt of 98 degrees."
+},
+{
+  "id": 9,
+  "question": "Which two planets do not have moons?",
+  "options": ["Mercury and Venus", "Earth and Mars", "Neptune and Uranus", "Jupiter and Saturn"],
+  "correct": 0,
+  "explanation": "Mercury and Venus are the only two planets without moons."
+},
+{
+  "id": 10,
+  "question": "Which planet is farthest from the Sun?",
+  "options": ["Neptune", "Uranus", "Pluto", "Saturn"],
+  "correct": 0,
+  "explanation": "Neptune is currently the farthest planet from the Sun in our solar system."
+},
+{
+  "id": 11,
+  "question": "Which planet has the strongest gravity?",
+  "options": ["Earth", "Jupiter", "Saturn", "Neptune"],
+  "correct": 1,
+  "explanation": "Jupiter’s massive size gives it the strongest gravity of any planet."
+},
+{
+  "id": 12,
+  "question": "What is the asteroid belt?",
+  "options": ["A ring around Saturn", "A group of moons", "A region with many asteroids between Mars and Jupiter", "A debris field around Earth"],
+  "correct": 2,
+  "explanation": "The asteroid belt lies between Mars and Jupiter and contains many rocky bodies."
+},
+{
+  "id": 13,
+  "question": "What causes a planet to be considered 'terrestrial'?",
+  "options": ["Having moons", "Being made of rock", "Having rings", "Orbiting slowly"],
+  "correct": 1,
+  "explanation": "Terrestrial planets are primarily rocky, like Earth, Mars, Venus, and Mercury."
+},
+{
+  "id": 14,
+  "question": "Which planet is famous for its Great Red Spot?",
+  "options": ["Mars", "Saturn", "Jupiter", "Neptune"],
+  "correct": 2,
+  "explanation": "The Great Red Spot is a giant storm on Jupiter."
+},
+{
+  "id": 15,
+  "question": "Which planet has seasons like Earth?",
+  "options": ["Venus", "Jupiter", "Mars", "Mercury"],
+  "correct": 2,
+  "explanation": "Mars has a similar axial tilt to Earth, giving it seasons."
+},
+{
+  "id": 16,
+  "question": "Which planet is closest in size to Earth?",
+  "options": ["Mars", "Venus", "Mercury", "Uranus"],
+  "correct": 1,
+  "explanation": "Venus is often called Earth’s twin due to its similar size and composition."
+},
+{
+  "id": 17,
+  "question": "What is a dwarf planet?",
+  "options": ["A small moon", "A planet outside the solar system", "A celestial body that orbits the Sun but hasn't cleared its orbit", "A planet made of ice"],
+  "correct": 2,
+  "explanation": "Dwarf planets like Pluto orbit the Sun but don’t clear their orbital path."
+},
+{
+  "id": 18,
+  "question": "What is the Kuiper Belt?",
+  "options": ["A ring around Jupiter", "A group of inner planets", "A region beyond Neptune with icy bodies", "A solar flare zone"],
+  "correct": 2,
+  "explanation": "The Kuiper Belt contains icy objects and dwarf planets beyond Neptune."
+},
+{
+  "id": 19,
+  "question": "Which planet has the tallest volcano?",
+  "options": ["Earth", "Mars", "Venus", "Mercury"],
+  "correct": 1,
+  "explanation": "Olympus Mons on Mars is the tallest known volcano in the solar system."
+},
+{
+  "id": 20,
+  "question": "What is the name of Earth's Moon?",
+  "options": ["Luna", "Selene", "Moon", "Gaia"],
+  "correct": 0,
+  "explanation": "The official name of Earth's moon is 'Luna', derived from Latin."
+}
+
       ]
     },
     {
@@ -51,9 +157,9 @@
       "title": "Space Exploration",
       "emoji": "🚀",
       "description": "Learn about historic space missions, astronauts, and the future of space exploration.",
-      "duration": "7 minutes",
-      "questions": 15,
-      "image": "https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
+      "duration": "5 minutes",
+      "questions": 10,
+      "image": "https://media.licdn.com/dms/image/v2/D5612AQEXs3Vq0C5xOA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1731510033985?e=2147483647&v=beta&t=XdYf8VmbC0S3L1pAMHAGA3IVsGRAtWN7FbLNvgEUEgI",
       "questionsData": [
         {
           "id": 1,
@@ -89,7 +195,112 @@
           "options": ["17,500 mph", "25,000 mph", "30,000 mph", "35,000 mph"],
           "correct": 0,
           "explanation": "The ISS orbits Earth at approximately 17,500 mph (28,000 km/h)."
-        }
+        },
+        {
+  "id": 6,
+  "question": "Which space shuttle was the first to go into space?",
+  "options": ["Challenger", "Atlantis", "Columbia", "Discovery"],
+  "correct": 2,
+  "explanation": "Columbia was the first space shuttle to fly in space in 1981."
+},
+{
+  "id": 7,
+  "question": "What is SpaceX's reusable rocket called?",
+  "options": ["Dragon", "Falcon 9", "Starlink", "New Shepard"],
+  "correct": 1,
+  "explanation": "Falcon 9 is a reusable two-stage rocket developed by SpaceX."
+},
+{
+  "id": 8,
+  "question": "Who was the first American woman in space?",
+  "options": ["Sally Ride", "Mae Jemison", "Valentina Tereshkova", "Peggy Whitson"],
+  "correct": 0,
+  "explanation": "Sally Ride flew aboard the Challenger in 1983 as the first American woman in space."
+},
+{
+  "id": 9,
+  "question": "Which country was the first to land a rover on Mars?",
+  "options": ["USA", "Russia", "China", "India"],
+  "correct": 0,
+  "explanation": "The USA's Viking 1 lander became the first to successfully operate on Mars in 1976."
+},
+{
+  "id": 10,
+  "question": "What was the name of the Mars rover that sang 'Happy Birthday' to itself?",
+  "options": ["Curiosity", "Spirit", "Opportunity", "Perseverance"],
+  "correct": 0,
+  "explanation": "NASA's Curiosity rover played 'Happy Birthday' to itself on Mars in 2013."
+},
+{
+  "id": 11,
+  "question": "Which private company first launched astronauts to the ISS?",
+  "options": ["Blue Origin", "Virgin Galactic", "SpaceX", "Rocket Lab"],
+  "correct": 2,
+  "explanation": "SpaceX launched NASA astronauts to the ISS aboard Crew Dragon in 2020."
+},
+{
+  "id": 12,
+  "question": "Which mission ended the Apollo program?",
+  "options": ["Apollo 11", "Apollo 13", "Apollo 15", "Apollo 17"],
+  "correct": 3,
+  "explanation": "Apollo 17, launched in 1972, was the final mission of NASA's Apollo lunar program."
+},
+{
+  "id": 13,
+  "question": "Which astronaut spent the longest single mission in space?",
+  "options": ["Scott Kelly", "Valeri Polyakov", "Peggy Whitson", "Yuri Gagarin"],
+  "correct": 1,
+  "explanation": "Valeri Polyakov spent 437 days aboard the Mir space station from 1994–1995."
+},
+{
+  "id": 14,
+  "question": "Which spacecraft traveled the farthest from Earth?",
+  "options": ["Voyager 1", "New Horizons", "Voyager 2", "Pioneer 10"],
+  "correct": 0,
+  "explanation": "Voyager 1, launched in 1977, is the most distant human-made object from Earth."
+},
+{
+  "id": 15,
+  "question": "What is the name of NASA’s new Moon mission program?",
+  "options": ["Orion", "Apollo", "Artemis", "Gemini"],
+  "correct": 2,
+  "explanation": "Artemis is NASA’s program to return humans to the Moon and beyond."
+},
+        {
+  "id": 16,
+  "question": "Which Mars rover succeeded Opportunity and landed in 2021?",
+  "options": ["Spirit", "Sojourner", "Curiosity", "Perseverance"],
+  "correct": 3,
+  "explanation": "NASA’s Perseverance rover landed on Mars in February 2021 to search for signs of ancient life."
+},
+{
+  "id": 17,
+  "question": "Which country was the first to land on the far side of the Moon?",
+  "options": ["USA", "Russia", "India", "China"],
+  "correct": 3,
+  "explanation": "China’s Chang’e 4 mission landed on the Moon's far side in 2019 — a world first."
+},
+{
+  "id": 18,
+  "question": "What is the name of the space probe that studied Pluto in 2015?",
+  "options": ["Voyager 2", "Cassini", "New Horizons", "Juno"],
+  "correct": 2,
+  "explanation": "NASA’s New Horizons flew by Pluto in 2015, sending back detailed images of the dwarf planet."
+},
+{
+  "id": 19,
+  "question": "Which female astronaut holds the record for most spacewalks?",
+  "options": ["Sunita Williams", "Peggy Whitson", "Christina Koch", "Kathryn Sullivan"],
+  "correct": 1,
+  "explanation": "Peggy Whitson completed 10 spacewalks — the most by any woman in history."
+},
+{
+  "id": 20,
+  "question": "What is NASA’s space capsule designed to carry astronauts beyond low Earth orbit?",
+  "options": ["Dragon", "Cygnus", "Orion", "HTV"],
+  "correct": 2,
+  "explanation": "Orion is NASA’s deep-space capsule designed for missions to the Moon and Mars under the Artemis program."
+}
       ]
     },
     {
@@ -97,9 +308,9 @@
       "title": "Deep Space",
       "emoji": "🌌",
       "description": "Explore galaxies, black holes, nebulae, and the mysteries of the distant universe.",
-      "duration": "10 minutes",
-      "questions": 20,
-      "image": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
+      "duration": "5 minutes",
+      "questions": 10,
+      "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/52af4c2f-653b-4ecf-b545-4103a1e6881c/dgst844-a7c0c6e6-a04b-45e8-a40e-3293229f9e19.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzUyYWY0YzJmLTY1M2ItNGVjZi1iNTQ1LTQxMDNhMWU2ODgxY1wvZGdzdDg0NC1hN2MwYzZlNi1hMDRiLTQ1ZTgtYTQwZS0zMjkzMjI5ZjllMTkuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.dnxavZtnY2ulaLOZ67dsCBaj2sRnj_wZhf_8OdGZDGM",
       "questionsData": [
         {
           "id": 1,
@@ -135,7 +346,112 @@
           "options": ["10.8 billion years", "13.8 billion years", "15.2 billion years", "20.1 billion years"],
           "correct": 1,
           "explanation": "The universe is approximately 13.8 billion years old based on cosmic microwave background measurements."
-        }
+        },
+        {
+  "id": 6,
+  "question": "What is a black hole?",
+  "options": ["A large planet", "A collapsed star with immense gravity", "A dark nebula", "A dying galaxy"],
+  "correct": 1,
+  "explanation": "A black hole is a collapsed star whose gravity is so strong that not even light can escape."
+},
+{
+  "id": 7,
+  "question": "What is dark matter?",
+  "options": ["A type of black hole", "A visible gas cloud", "Invisible matter that makes up most of the universe's mass", "Dark-colored planets"],
+  "correct": 2,
+  "explanation": "Dark matter is invisible and makes up about 27% of the universe's mass-energy content."
+},
+{
+  "id": 8,
+  "question": "Which telescope discovered the first exoplanets?",
+  "options": ["James Webb", "Spitzer", "Kepler", "Hubble"],
+  "correct": 2,
+  "explanation": "NASA’s Kepler telescope discovered thousands of exoplanets by detecting dips in starlight."
+},
+{
+  "id": 9,
+  "question": "What is a quasar?",
+  "options": ["A galaxy with no stars", "A pulsating star", "A supermassive black hole emitting enormous energy", "A type of asteroid"],
+  "correct": 2,
+  "explanation": "Quasars are extremely bright centers of distant galaxies powered by supermassive black holes."
+},
+{
+  "id": 10,
+  "question": "What does the cosmic microwave background represent?",
+  "options": ["Future space radiation", "Radiation from nearby stars", "Echo of the Big Bang", "Signals from black holes"],
+  "correct": 2,
+  "explanation": "The CMB is leftover radiation from the Big Bang, giving clues about the early universe."
+},
+{
+  "id": 11,
+  "question": "What is the fate of most massive stars?",
+  "options": ["They form comets", "They turn into planets", "They become white dwarfs", "They explode into supernovae"],
+  "correct": 3,
+  "explanation": "Massive stars often end their life cycle in a supernova explosion."
+},
+{
+  "id": 12,
+  "question": "Which galaxy is expected to collide with the Milky Way?",
+  "options": ["Andromeda", "Triangulum", "Whirlpool", "Large Magellanic Cloud"],
+  "correct": 0,
+  "explanation": "The Andromeda Galaxy is on a collision course with the Milky Way in about 4.5 billion years."
+},
+{
+  "id": 13,
+  "question": "What is the most abundant element in the universe?",
+  "options": ["Oxygen", "Helium", "Carbon", "Hydrogen"],
+  "correct": 3,
+  "explanation": "Hydrogen is the most abundant element in the universe, making up about 75% of all matter."
+},
+{
+  "id": 14,
+  "question": "How are distances to stars typically measured?",
+  "options": ["Microscopy", "Spectroscopy", "Parallax", "Redshift"],
+  "correct": 2,
+  "explanation": "Parallax involves observing the apparent motion of a star against distant background stars as Earth orbits the Sun."
+},
+{
+  "id": 15,
+  "question": "What does redshift indicate about a galaxy?",
+  "options": ["It's moving away from us", "It's getting closer", "It's dying", "It's spinning faster"],
+  "correct": 0,
+  "explanation": "Redshift means the galaxy’s light is stretched, indicating it’s moving away due to universe expansion."
+},
+{
+  "id": 16,
+  "question": "What is a neutron star?",
+  "options": ["A cloud of gas", "A planet made of neutrons", "The dense core left after a supernova", "A young galaxy"],
+  "correct": 2,
+  "explanation": "A neutron star is the collapsed core of a massive star that exploded as a supernova."
+},
+{
+  "id": 17,
+  "question": "What are gravitational waves?",
+  "options": ["Solar flares", "Ripples in spacetime from cosmic events", "Magnetic fields", "Radio signals from pulsars"],
+  "correct": 1,
+  "explanation": "Gravitational waves are ripples in spacetime caused by massive objects like merging black holes."
+},
+{
+  "id": 18,
+  "question": "Which mission studies black holes using X-rays?",
+  "options": ["Voyager", "Chandra", "Galileo", "Kepler"],
+  "correct": 1,
+  "explanation": "NASA’s Chandra X-ray Observatory observes high-energy regions like black holes and neutron stars."
+},
+{
+  "id": 19,
+  "question": "What is the name of the largest known galaxy?",
+  "options": ["Milky Way", "IC 1101", "Andromeda", "Messier 87"],
+  "correct": 1,
+  "explanation": "IC 1101 is one of the largest known galaxies, stretching over 6 million light-years across."
+},
+{
+  "id": 20,
+  "question": "What is a light-year?",
+  "options": ["Time it takes for light to fade", "Distance light travels in one year", "Mass of a star", "Age of a star"],
+  "correct": 1,
+  "explanation": "A light-year is a unit of distance—how far light travels in one Earth year (about 5.88 trillion miles)."
+}
       ]
     }
   ],
