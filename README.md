@@ -4,6 +4,8 @@
 
 AstralChronos is a comprehensive space exploration platform that combines historical space events, real-time astronomical data, interactive features, and AI-powered experiences. The application serves as an educational and engagement hub for space enthusiasts, featuring timeline visualization, live space data dashboards, interactive quizzes, virtual space tourism planning, and an AI chatbot assistant.
 
+---
+
 ## System Architecture
 
 ### Frontend Architecture
@@ -19,7 +21,9 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 - **Runtime**: Node.js with TypeScript
 - **Framework**: Express.js for REST API endpoints
 - **Development Server**: Custom Vite integration for hot module replacement
-- **Data Storage**: Lightweight backend powered by a static JSON file, acting as the primary data store.
+- **Data Storage**: Lightweight backend powered by a static JSON file, acting as the primary data store
+
+---
 
 ## ✨ Key Components
 
@@ -34,7 +38,7 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 - **Space Dashboard**: Real-time data display for ISS location, moon phases, and NASA imagery
 - **Quiz System**: Educational quizzes on space topics with progress tracking
 - **Virtual Tourism**: Space travel planning for fictional planetary destinations
-- **Space Quizzes**: Interactive, fun quizzes to test your space knowledge.
+- **Space Quizzes**: Interactive, fun quizzes to test your space knowledge
 
 ### AI Integration
 - **Chatbot Assistant**: Voice and text-enabled space exploration assistant
@@ -44,9 +48,11 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 - **Text-to-Speech**: Browser-based speech synthesis for responses
 
 ### User Interface
-- **Responsive Design**: Seamlessly adapts across all devices with a fully responsive layout.
+- **Responsive Design**: Seamlessly adapts across all devices with a fully responsive layout
 - **Space Theme**: Dark theme with cosmic color palette
 - **Interactive Elements**: Hover effects, animations, and smooth scrolling navigation
+
+---
 
 ## 🤖 Dependencies
 
@@ -66,6 +72,8 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 - **News APIs**: Space news integration (configurable)
 - **Webhooks**: Integrated with AI agenst and LLM Modles using n8n AI workflow
 - **3D Models**: Seamlessly embedded interactive models powered by Sketchfab for immersive visualization
+
+---
 
 ## 🛠️ Installation & Setup Instructions
 
@@ -137,6 +145,6 @@ Special thanks to these amazing open APIs and libraries that power AstralChronos
 - 🎤 **Web Speech API**  
   [https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
 - 🧊 **Sketchfab 3D Models**  
-  🧾 Docs: https://sketchfab.com/developers/viewer  
+  [https://sketchfab.com/developers/viewer](https://sketchfab.com/developers/viewer)
 
 ---
