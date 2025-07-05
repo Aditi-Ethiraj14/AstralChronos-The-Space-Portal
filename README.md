@@ -1,12 +1,6 @@
 # AstralChronos - Space Exploration Platform
 
-[![Build](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/your-username/AstralChronos/actions)
-[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Made with Vite](https://img.shields.io/badge/built%20with-vite-646CFF.svg)](https://vitejs.dev/)
-[![Powered by NASA APIs](https://img.shields.io/badge/API-NASA-lightblue)](https://api.nasa.gov)
-
-
-## Overview
+## 🚀 Overview
 
 AstralChronos is a comprehensive space exploration platform that combines historical space events, real-time astronomical data, interactive features, and AI-powered experiences. The application serves as an educational and engagement hub for space enthusiasts, featuring timeline visualization, live space data dashboards, interactive quizzes, virtual space tourism planning, and an AI chatbot assistant.
 
@@ -27,7 +21,7 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 - **Development Server**: Custom Vite integration for hot module replacement
 - **Data Storage**: Lightweight backend powered by a static JSON file, acting as the primary data store.
 
-## Key Components
+## ✨ Key Components
 
 ### Space Data Integration
 - **NASA APIs**: Integration with NASA's Astronomy Picture of the Day (APOD) and other space data APIs
@@ -53,7 +47,7 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 - **Space Theme**: Dark theme with cosmic color palette
 - **Interactive Elements**: Hover effects, animations, and smooth scrolling navigation
 
-## Dependencies
+## 🤖 Dependencies
 
 ### Development Dependencies
 - **Build Tools**: Vite, ESBuild for production builds
