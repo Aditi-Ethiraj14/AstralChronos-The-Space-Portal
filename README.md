@@ -34,6 +34,7 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 - **Space Dashboard**: Real-time data display for ISS location, moon phases, and NASA imagery
 - **Quiz System**: Educational quizzes on space topics with progress tracking
 - **Virtual Tourism**: Space travel planning for fictional planetary destinations
+- **Space Quizzes**: Interactive, fun quizzes to test your space knowledge.
 
 ### AI Integration
 - **Chatbot Assistant**: Voice and text-enabled space exploration assistant
