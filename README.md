@@ -66,3 +66,47 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 - **Webhooks**: Integrated with AI agenst and LLM Modles using n8n AI workflow
 - **3D Models**: Seamlessly embedded interactive models powered by Sketchfab for immersive visualization
 
+## 🛠️ Installation & Setup Instructions
+
+Follow these steps to run the project locally:
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/AstralChronos.git
+cd AstralChronos
+````
+
+### 2. Install dependencies
+
+```bash
+npm install
+npm install cross-env
+```
+
+> `cross-env` ensures environment variables work across different OS platforms like Windows, macOS, and Linux.
+
+### 3. Create and configure your `.env` file
+
+```bash
+cp .env.example .env
+```
+
+Now open the `.env` file and fill in the required API keys:
+
+* NASA API key
+* OpenAI / HuggingFace LLM key (if used)
+* Any webhook or public API endpoint used in chatbot/tourism module
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+This will launch the app in development mode.
+You can now view it in your browser at:
+
+```
+http://localhost:5173
+```
