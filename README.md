@@ -61,7 +61,7 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 
 ### Core Dependencies
 - **React Ecosystem**: React, React Query for state management
-- **UI Components**: Radix UI primitives, Lucide React icons
+- **UI Components**: Lucide React icons
 - **Styling**: Tailwind CSS, class-variance-authority for component variants
 
 ### External APIs
