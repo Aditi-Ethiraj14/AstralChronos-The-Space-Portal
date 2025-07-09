@@ -11,7 +11,6 @@ AstralChronos is a comprehensive space exploration platform that combines histor
 ### Frontend Architecture
 - **Framework**: React 18 with TypeScript
 - **Routing**: Wouter for client-side routing
-- **State Management**: TanStack React Query for server state management
 - **UI Framework**: Radix UI components with shadcn/ui component library
 - **Styling**: Tailwind CSS with custom space-themed color palette
 - **Build Tool**: Vite for development and production builds
