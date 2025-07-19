@@ -5,7 +5,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Webhook proxy endpoint to avoid CORS issues
   app.post('/api/webhook/send', async (req, res) => {
     try {
-      const webhookUrl = "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
+      const webhookUrl = "https://adie19.app.n8n.cloud/webhook/c915362a-0fca-4f75-aa27-a02b8a94fee0";
 
       console.log('Sending to webhook:', webhookUrl);
       console.log('Payload:', JSON.stringify(req.body, null, 2));
@@ -41,7 +41,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post('/api/webhook/hero', async (req, res) => {
     try {
       // Hero section webhook URL - separate from calendar
-      const heroWebhookUrl = "https://adie13.app.n8n.cloud/webhook/8f9defba-3665-465a-b86f-5a9ae79449d3";
+      const heroWebhookUrl = "https://adie19.app.n8n.cloud/webhook/c915362a-0fca-4f75-aa27-a02b8a94fee0";
 
       console.log('Sending to hero webhook:', heroWebhookUrl);
       console.log('Hero payload:', JSON.stringify(req.body, null, 2));
@@ -74,7 +74,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Fetch N8N webhook response endpoint
   app.post('/api/webhook/fetch', async (req, res) => {
     try {
-      const webhookUrl = "https://adie13.app.n8n.cloud/webhook/7825313f-a417-4ce7-802f-ecdd48dabbed";
+      const webhookUrl = "https://adie19.app.n8n.cloud/webhook/c915362a-0fca-4f75-aa27-a02b8a94fee0";
 
       console.log('Fetching from N8N webhook:', webhookUrl);
       console.log('Fetch payload:', JSON.stringify(req.body, null, 2));
